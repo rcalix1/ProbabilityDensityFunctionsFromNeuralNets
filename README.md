@@ -12,7 +12,7 @@ In an industrial process, you can learrn the pdf by comparing it to the real dat
 
 The code in this repo (written in python) is the companion to the upcoming book:
 
-### Collaborators
+### Book (upcoming)
 
 Probabily Density Functions and Deep Learning: Applications to the Engineering Sciences
 
