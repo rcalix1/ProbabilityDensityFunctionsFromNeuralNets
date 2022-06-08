@@ -8,7 +8,7 @@ The general function is as follows:
 
 where  f(x) is the function and e(x) is the noise or error. 
 
-In an industrial process, you can learrn the pdf by comparing it to the real data of your target variable. This is called pdf shaping and it has many app,lication in stochastic control systems. 
+In an industrial process, you can learrn the pdf by comparing it to the real data of your target variable. This is called pdf shaping and it has many applications in stochastic control systems. 
 
 The code in this repo (written in python) is the companion to the upcoming book:
 
