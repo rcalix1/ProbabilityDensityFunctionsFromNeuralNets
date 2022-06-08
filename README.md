@@ -12,8 +12,16 @@ In an industrial process, you can learrn the pdf by comparing it to the real dat
 
 The code in this repo (written in python) is the companion to the upcoming book:
 
-Probabily Density Functions with Deep Learning: Applications to the Engineering Sciences
+### Collaborators
+
+Probabily Density Functions and Deep Learning: Applications to the Engineering Sciences
+
 By Ricardo Calix
 
 
+### Contact
+Ricardo A. Calix, Ph.D.
+
+### Notices
+Released as is with no warranty
 
