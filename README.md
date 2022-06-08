@@ -1,6 +1,6 @@
 ## Probability Density Functions (PDFs) from Neural Networks
 
-Probability Density Functions (PDFs) have many applications in the Engieering Sciences, Industrial Engineering, Finance, and many other fields. They are used in regression type models which predict real valued numbers in a given range. The goal of the neural network model is to predict a real valued number but also provide a probability of that number. The PDF should add to 1. 
+Probability Density Functions (PDFs) have many applications in the Engineering Sciences, Industrial Engineering, Finance, and many other fields. They are used in regression type models which predict real valued numbers in a given range. The goal of the neural network model is to predict a real valued number but also provide a probability of that number. The PDF should add to 1. 
 
 The general function is as follows:
 
