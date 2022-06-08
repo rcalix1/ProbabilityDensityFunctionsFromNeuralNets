@@ -14,7 +14,7 @@ The code in this repo (written in python) is the companion to the upcoming book:
 
 ### Book (upcoming)
 
-Probabily Density Functions and Deep Learning: Applications to the Engineering Sciences
+Probabily Density Functions and Deep Learning with Python: Applications to the Engineering Sciences
 
 By Ricardo Calix
 
