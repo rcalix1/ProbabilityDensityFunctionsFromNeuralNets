@@ -10,13 +10,13 @@ where  f(x) is the function and e(x) is the noise or error.
 
 In an industrial process, you can learrn the pdf by comparing it to the real data of your target variable. This is called pdf shaping and it has many applications in stochastic control systems. 
 
-The code in this repo (written in python) is the companion to the upcoming book:
+The code in this repo (written in python) is the companion to the notebook:
 
-### Book (upcoming)
+### notebook
 
 Machine Learning for System Control
 
-By Ricardo Calix
+
 
 
 ### Contact
