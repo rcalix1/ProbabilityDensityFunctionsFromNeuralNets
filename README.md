@@ -9,7 +9,7 @@ Two of the most important types are:
 
 ##  Mixture Density Networks (MDN)
 
-For a detail desctiption of this see the Jupyter notebook here: https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/blob/main/MixtureDensityNetworks.ipynb
+For a detail desctiption of MDNs see my Jupyter notebook here: https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/blob/main/MixtureDensityNetworks.ipynb
 
 
 ## PDF Shaping
