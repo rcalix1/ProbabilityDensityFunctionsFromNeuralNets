@@ -9,25 +9,25 @@ Two of the most important types are:
 
 ##  Mixture Density Networks (MDN)
 
-For a detail desctiption of MDNs see my Jupyter notebook here: https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/blob/main/MixtureDensityNetworks.ipynb
+For a detail description of MDNs see my Jupyter notebook here: https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/blob/main/MixtureDensityNetworks.ipynb
 
 In essence, MDNs for the gaussian case are neural nets that given x inputs, can learn to predict a y value plus its max variance range. The neural net has 2 outputs instead of just one. The predicted outputs can be thought of as the mean and sigma values given input x. 
 
 ## PDF Shaping
 
-Literature on PDF shaping can be found here (refs). In an industrial process, you can learrn the shape of your real PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. 
+In an industrial process, you can learn the shape of your real PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. Literature on PDF shaping can be found here (refs).
 
-The general function is as follows:
+The general function of some random variable in a process can be represented as follows:
 
 $ y = g(x) = f(x) + e(x) $
 
 where  f(x) is the function and e(x) is the noise or error. 
 
-It is assumed that a deep neural network will learn the f(x) and e(x) functions together and so g(x) is the neural network. Unlike regular regression models which learn to predict y values given input values x. In PDF shaping, the neural net learns to predict probabilities given x inputs. Here given a range of values, the model you indicate the probability of that range. 
+It is assumed that a deep neural network will learn the f(x) and e(x) functions together and so g(x) will be learned using neural network. Unlike regular regression models which learn to predict y values given input values x. In PDF shaping, the neural net learns to predict probabilities given x inputs. Here, given a range of values, the model should predict the probability of that range. 
 
+The PDF shape of g(x) is not known and it should not be assumed to have a normal distribution. Since the true distribution is not known, years of research (refs) have shown that a next best approach is to approximate this unknown distribution to an ideal distribution. Therefore, the goal in PDF shaping is to force the true distribution to become as much as possible like the normal distribution. 
 
-
-The loss function you are trying to optimize is as follows:
+As such, the loss function you are trying to optimize is as follows:
 
 $   J = min \sum \limits _{i} ^{n} (g(x) - I(x))^2 $
 
