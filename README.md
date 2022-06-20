@@ -16,7 +16,7 @@ $   J = min \sum \limits _{i} ^{n} (g(x) - I(x))^2 $
 
 where I(x) is the ideal function also know as the impulse function which can be defined as a gaussian function withe very narrow standard deviation and the mean of the target output variable. 
 
-$  I(x) =  \frac{1}{2}   $
+$  I(x) =  \frac{1}{\sigma \sqrt{2 \pi}} e^{1}   $
 
 The code in this repo (written in python) is the companion to the notebook:
 
