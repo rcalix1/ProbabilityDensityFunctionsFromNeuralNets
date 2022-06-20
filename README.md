@@ -1,6 +1,20 @@
 ## Probability Density Functions (PDFs) from Neural Networks
 
-Probability Density Functions (PDFs) have many applications in the Engineering Sciences, Industrial Engineering, Finance, and many other fields. They are used in regression type models which predict real valued numbers in a given range. The goal of the neural network model is to predict a real valued number but also provide a probability of that number. The PDF should add to 1. 
+Modeling Probability Density Functions (PDFs) from neural nets has many applications in the Engineering Sciences, Industrial Engineering, Finance, and many other fields. These PDF predicting models are used in regression type problems which predict real valued numbers in a given range. The goal of the neural network model is to learn how to represent the probability distribution of the underlying data. The PDF should add to 1. 
+
+Two of the most important types are: 
+
+* Mixture Density Networks (MDN)
+* PDF Shaping
+
+##  Mixture Density Networks (MDN)
+
+For a detail desctiption of this see the Jupyter notebook here: https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/blob/main/MixtureDensityNetworks.ipynb
+
+
+## PDF Shaping
+
+Literature on PDF shaping can be found here (refs). In an industrial process, you can learrn the shape of your real PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. 
 
 The general function is as follows:
 
@@ -10,7 +24,7 @@ where  f(x) is the function and e(x) is the noise or error.
 
 It is assumed that a deep neural network will learn the f(x) and e(x) functions together and so g(x) is the neural network. Unlike regular regression models which learn to predict y values given input values x. In PDF shaping, the neural net learns to predict probabilities given x inputs. Here given a range of values, the model you indicate the probability of that range. 
 
-In an industrial process, you can learrn the shape of your real PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. 
+
 
 The loss function you are trying to optimize is as follows:
 
