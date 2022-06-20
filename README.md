@@ -2,7 +2,7 @@
 
 Modeling Probability Density Functions (PDFs) from neural nets has many applications in the Engineering Sciences, Industrial Engineering, Finance, and many other fields. These PDF predicting models are used in regression type problems which predict real valued numbers in a given range. The goal of the neural network model is to learn how to represent the probability distribution of the underlying data. The PDF should add to 1. 
 
-Two of the most important types are: 
+Two important types are: 
 
 * Mixture Density Networks (MDN)
 * PDF Shaping
