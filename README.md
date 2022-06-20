@@ -15,7 +15,7 @@ In essence, MDNs for the gaussian case are neural nets that given x inputs, can 
 
 ## PDF Shaping
 
-In an industrial process, you can learn the shape of your real PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. Literature on PDF shaping can be found here ([Wang and Wang, 2021](https://onlinelibrary.wiley.com/doi/epdf/10.1002/oca.2755); [Hong et al., 2021](https://ieeexplore.ieee.org/document/9314084)).
+In an industrial process, you can learn the shape of your real output PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. Literature on PDF shaping can be found here ([Wang and Wang, 2021](https://onlinelibrary.wiley.com/doi/epdf/10.1002/oca.2755); [Hong et al., 2021](https://ieeexplore.ieee.org/document/9314084)).
 
 The general function of some random variable in a process can be represented as follows:
 
