@@ -25,7 +25,7 @@ where  f(x) is the function and e(x) is the noise or error.
 
 It is assumed that a deep neural network will learn the f(x) and e(x) functions together and so g(x) will be learned using a neural network. Unlike regular regression models which learn to predict y values given input values x. In PDF shaping, the neural net learns to predict probabilities given x inputs. Here, given a range of values, the model should predict the probability of that range. 
 
-The PDF shape of g(x) is not known and it should not be assumed to be a normal distribution. Since the true distribution is not known, years of research (refs) have shown that a next best approach is to approximate this unknown distribution to an ideal distribution. Therefore, the goal in PDF shaping is to force the true distribution to become as much as possible like the normal distribution with a very narrow variance and mean of the target variable in question. This is also called an impulse function. 
+The PDF shape of g(x) is not known and it should not be assumed to be a normal distribution. Since the true distribution is not known, years of research ([Wang and Wang, 2021](https://onlinelibrary.wiley.com/doi/epdf/10.1002/oca.2755)) have shown that a next best approach is to approximate this unknown distribution to an ideal distribution. Therefore, the goal in PDF shaping is to force the true distribution to become as much as possible like the normal distribution with a very narrow variance and mean of the target variable in question. This is also called an impulse function. 
 
 As such, the loss function you are trying to optimize is as follows:
 
