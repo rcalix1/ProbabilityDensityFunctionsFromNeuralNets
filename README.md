@@ -11,7 +11,7 @@ Two important types are:
 
 For a detail description of MDNs see my Jupyter notebook here: https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/blob/main/MixtureDensityNetworks.ipynb
 
-In essence, MDNs for the gaussian case are neural nets that given x inputs, can learn to predict a y value plus its max variance range. The neural net has 2 outputs instead of just one. The predicted outputs can be thought of as the mean and sigma values given input x. 
+In essence, MDNs for the gaussian case are neural nets that given x inputs, can learn to predict a y value plus its max variance range. The neural net has 2 outputs instead of just one. The predicted y outputs can be thought of as the mean and sigma values given input x. 
 
 ## PDF Shaping
 
