@@ -10,11 +10,13 @@ where  f(x) is the function and e(x) is the noise or error.
 
 In an industrial process, you can learrn the shape of your real PDF function by comparing it to an ideal distribution function. This is called PDF shaping and it has many applications in stochastic control systems. 
 
-The basis loss function you are trying to optimize is as follows:
+The loss function you are trying to optimize is as follows:
 
 $   J = min \sum \limits _{i} ^{n} (g(x) - I(x))^2 $
 
-where $ I(x) $ is the ideal function also know as the impulse function which ca be defined as a gaussian function withe very narrow standard deviation $   \sigma $ and the mean $  \mu $ of the target output variable. 
+where I(x) is the ideal function also know as the impulse function which can be defined as a gaussian function withe very narrow standard deviation and the mean of the target output variable. 
+
+$  I(x) =  \fraction{1}{2}   $
 
 The code in this repo (written in python) is the companion to the notebook:
 
