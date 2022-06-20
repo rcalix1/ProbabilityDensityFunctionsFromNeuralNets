@@ -25,13 +25,13 @@ where  f(x) is the function and e(x) is the noise or error.
 
 It is assumed that a deep neural network will learn the f(x) and e(x) functions together and so g(x) will be learned using a neural network. Unlike regular regression models which learn to predict y values given input values x. In PDF shaping, the neural net learns to predict probabilities given x inputs. Here, given a range of values, the model should predict the probability of that range. 
 
-The PDF shape of g(x) is not known and it should not be assumed to have a normal distribution. Since the true distribution is not known, years of research (refs) have shown that a next best approach is to approximate this unknown distribution to an ideal distribution. Therefore, the goal in PDF shaping is to force the true distribution to become as much as possible like the normal distribution with very narrow variance and mean of the target variable in question. This is also called an impulse function. 
+The PDF shape of g(x) is not known and it should not be assumed to have a normal distribution. Since the true distribution is not known, years of research (refs) have shown that a next best approach is to approximate this unknown distribution to an ideal distribution. Therefore, the goal in PDF shaping is to force the true distribution to become as much as possible like the normal distribution with a very narrow variance and mean of the target variable in question. This is also called an impulse function. 
 
 As such, the loss function you are trying to optimize is as follows:
 
 $   J = min \sum \limits _{i} ^{n} ( g(x) - I(x) )^2 $
 
-where I(x) is the ideal function also know as the impulse function which can be defined as a gaussian function withe very narrow standard deviation and the mean of the target output variable. 
+where I(x) is the ideal function (impulse function) which can be defined as a gaussian function withe very narrow standard deviation and the mean of the target output variable. As such, I(x) can be modelled with the standard gaussian equation.
 
 $ \large  I(x) =  \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{(x - \mu)^2}{2 \sigma ^2} }  $
 
