@@ -29,15 +29,15 @@ The PDF shape of g(x) is not known and it should not be assumed to be a normal d
 
 As such, the loss function you are trying to optimize is as follows:
 
-$   J = min \sum \limits _{i} ^{n} ( g(x) - I(x) )^2 $
+$$   J = min \sum \limits _{i} ^{n} ( g(x) - I(x) )^2 $$
 
 where g(x) is entirely learned by the neural network, and I(x) is the ideal function (impulse function) defined as a gaussian with very narrow standard deviation and the mean of the target output variable. As such, I(x) can be modelled with the standard gaussian equation.
 
-$ \large  I(x) =  \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{(x - \mu)^2}{2 \sigma ^2} }  $
+$$ \large  I(x) =  \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{(x - \mu)^2}{2 \sigma ^2} }  $$
 
 The code in this repo (written in python) is the companion to the notebook:
 
-### Notebook
+### Notebooks
 
 Machine Learning for System Control
 
