@@ -19,7 +19,7 @@ In an industrial process, you can learn the shape of your real output PDF functi
 
 The general function of some random variable in a process can be represented as follows:
 
-$ y = g(x) = f(x) + e(x) $
+$$ y = g(x) = f(x) + e(x) $$
 
 where  f(x) is the function and e(x) is the noise or error. 
 
