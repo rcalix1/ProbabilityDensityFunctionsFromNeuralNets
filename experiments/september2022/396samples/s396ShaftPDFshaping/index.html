@@ -1,0 +1,61 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+  <script src="./index.js"></script>
+  
+  <style>
+      
+      table, th, td {
+           border: 1px solid;
+      }
+  </style>
+</head>
+<body>
+  <h1>CFD 396 Samples Shaft 6 Inputs and 5 Outputs g(x) = f1 + f2 and PDF</h1>
+  <h2>Input reference</h2>
+  <p>
+   input <br/>
+    tensor([   38.0000,     0.0000,   300.0000,    27.0000, 308750.3750,    12.1540,
+        359906.3125,  1459.8170, 24494.0000, 7, 87618.0156])
+
+    </p>
+    <hr>
+
+  <h2>Inference</h2>
+  
+
+  
+  <input type="text" id="box0" value="38"> i_pul_coal_inj_kg_thm <br/>
+  <input type="text" id="box1" value="0"> i_nat_gas_inj_kg_thm <br/>
+  <input type="text" id="box2" value="300"> i_nat_gas_t_k <br/>
+  <input type="text" id="box3" value="27"> i_o2_vol_perce <br/>
+  <input type="text" id="box4" value="7"> i_ore_moisture_weight_perce <br/>
+  <input type="text" id="box5" value="87618"> i_ore_weight_kg <br/>
+
+  <div>
+      <input style="background-color:yellow" type="button" value="Run" onclick="runExample()"/></div>
+  
+  
+  
+   
+  
+  <div id="predictions">
+
+  </div>
+  
+  <hr>
+  
+   <h2>Output reference</h2>
+    <p>
+     <br/>
+
+  </p>
+  <p>
+     <br/>
+
+  </p>
+  
+  <hr>
+ 
+</body>
+</html>
