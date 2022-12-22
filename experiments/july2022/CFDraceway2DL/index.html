@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+  <script src="./index.js"></script>
+  
+  <style>
+      
+      table, th, td {
+           border: 1px solid;
+      }
+  </style>
+</head>
+<body>
+  <h1>CFD raceway Deep Learning (2 layers) 4 Inputs and 4 Outputs</h1>
+  <h2>Input reference</h2>
+  <p>
+   input <br/>
+    tensor([   38.0000,     0.0000,   300.0000,    27.0000, 308750.3750,    12.1540,
+        359906.3125,  1459.8170, 24494.0000, 87618.0156])
+
+    </p>
+    <hr>
+
+  <h2>Inference</h2>
+  
+
+  
+  <input type="text" id="box0" value="38"> i_pul_coal_inj_kg_thm <br/>
+  <input type="text" id="box1" value="0"> i_nat_gas_inj_kg_thm <br/>
+  <input type="text" id="box2" value="300"> i_nat_gas_t_k <br/>
+  <input type="text" id="box3" value="27"> i_o2_vol_perce <br/>
+
+
+  <div>
+      <input style="background-color:yellow" type="button" value="Run" onclick="runExample()"/></div>
+  
+  
+  
+   
+  
+  <div id="predictions">
+
+  </div>
+  
+  <hr>
+  
+   <h2>Output reference</h2>
+    <p>
+     <br/>
+
+  </p>
+  <p>
+    real output <br/>
+tensor([  128.5721,  1429.0322,  2617.3091,    98.5278,     0.2167,     0.8389,
+           46.6556,    43.1349,    77.2359, 119367.6016,   520.1385,    31.7596,
+           10.4790,     0.2648,     0.2316,     0.0165,     0.4870])
+  </p>
+  
+  <hr>
+ 
+</body>
+</html>
