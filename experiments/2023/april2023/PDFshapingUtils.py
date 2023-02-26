@@ -49,6 +49,7 @@ class PDFshapingUtils:
         self.impulse_func_vector_vals = None
         self.N_error_range =  20          ## 20  ## 10   ## error between pred and real range (-20, 20)
         self.N_error_range_step_size = 0.01
+        self.sigma_func_vector_vals = None
         
         self.h = 0.9                      ## 0.7    ## 0.05     ## 0.03                    ## 0.05 >
         
@@ -407,6 +408,11 @@ class PDFshapingUtils:
         left  = 1 / (    torch.sqrt(   2 * torch.tensor(math.pi)   ) * torch.sqrt(torch.tensor(sigma) )    )
         right = torch.exp(   -(x - mu)**2 / (2 * sigma)    )
         self.impulse_func_vector_vals = left * right
+        
+    def initializeSigmaVector(self): 
+        
+        x    = self.x_range_impulse_func
+        self.sigma_func_vector_vals =  x**2
         
                  
     def if_known_gaussian_kernel_density(self, the_errors): 
