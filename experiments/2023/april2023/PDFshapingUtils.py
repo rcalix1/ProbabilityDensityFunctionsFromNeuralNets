@@ -44,7 +44,7 @@ class PDFshapingUtils:
 
         ## define mean and standard deviation of target Gaussian distribution (impulse function)
         self.mean_impulse = 0.
-        self.std_impulse  = 0.01
+        self.std_impulse  = 0.0001
         self.x_range_impulse_func = None 
         self.impulse_func_vector_vals = None
         self.N_error_range =  20          ## 20  ## 10   ## error between pred and real range (-20, 20)
@@ -408,6 +408,21 @@ class PDFshapingUtils:
         left  = 1 / (    torch.sqrt(   2 * torch.tensor(math.pi)   ) * torch.sqrt(torch.tensor(sigma) )    )
         right = torch.exp(   -(x - mu)**2 / (2 * sigma)    )
         self.impulse_func_vector_vals = left * right
+        
+    def initializeImpulseToOtherShapes(self): 
+        
+        ## 4000   ## the error is in this range 
+        self.x_range_impulse_func = torch.arange(-self.N_error_range, self.N_error_range, self.N_error_range_step_size)  
+        
+        mu    = -12.0
+        sigma = 0.5 
+        x    = self.x_range_impulse_func
+        left  = 1 / (    torch.sqrt(   2 * torch.tensor(math.pi)   ) * torch.sqrt(torch.tensor(sigma) )    )
+        right = torch.exp(   -(x - mu)**2 / (2 * sigma)    )
+        fake_impulse_1 = left * right
+        
+        self.impulse_func_vector_vals = fake_impulse_1 
+        
         
     def initializeSigmaVector(self): 
         
