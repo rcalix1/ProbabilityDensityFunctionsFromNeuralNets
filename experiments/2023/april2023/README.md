@@ -1,18 +1,22 @@
+## Contents
+
+This repo includes several proofs showing how PDF shaping works.
+
 ## Experiment 1 - using the Hong dataset
 
-Several proofs showing how PDF shaping works.
+benchmarking 2x1
 
 ## Training with linear plus non linear
 
-Using the linear plus non-linear NN architecture, the model achieves:
+Using the linear plus non-linear NN architecture, after training the model achieves:
 
-* for training
+* For training
 
 Training loss: tensor(0.0654, grad_fn=<MseLossBackward0>)
 
 Training R**2: 0.928283663941792
 
-* for testing
+* For testing
 
 Test loss - scaled: tensor(0.0764, grad_fn=<MseLossBackward0>)
 
@@ -20,8 +24,22 @@ Testing R**2 - scaled: 0.9152176200649317
 
 Testing R**2 - Output: 0 o_y 0.915217627422392
 
-Using PDF shaping does not significantly improve results. The error distribution after linear plus non linear training is as follows
+Using PDF shaping does not significantly improve results. The error distribution after linear plus non linear training (and before PDF shaping) is as follows:
 
 ![After F1 PLUS f2 TRAINING](F1plusf2_training.png "WITH TRAINING")
   
-  
+## F1 PLUS f2 model not trained. Training done on PDF shaping only
+
+To see the effect of PDF shaping and prove that it works. I needed a model that predicted badly. So, I initialized the F1 plus F2 model but did not train it. Therefore, it can make bad prediction and have a non-gaussian and non zero mean just before starting PDF shaping. This is the error distribution just before PDF shaping training. 
+
+
+![just at the start of pdf training](at_start_pdf_training.png "at_start_pdf")
+
+
+
+
+
+
+
+
+
