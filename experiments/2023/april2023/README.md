@@ -37,7 +37,7 @@ To see the effect of PDF shaping and prove that it works. I needed a model that 
 
 
 
-And this is the plot at the end of pdf shaping. as can be seen, it learned. 
+And this is the plot at the end of pdf shaping. As can be seen, it learned. 
 
 
 ![just at the start of pdf training](at_end_pdf_training.png "at_start_pdf")
