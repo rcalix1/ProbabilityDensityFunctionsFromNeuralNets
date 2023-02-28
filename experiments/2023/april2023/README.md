@@ -6,7 +6,7 @@ This repo includes several proofs showing how PDF shaping works.
 
 benchmarking 2x1
 
-## Training with linear plus non linear
+## Training with linear plus non linear (F1 plus F2)
 
 Using the linear plus non-linear NN architecture, after training the model achieves:
 
@@ -37,9 +37,9 @@ To see the effect of PDF shaping and prove that it works. I needed a model that 
 
 
 
+And this is the plot at the end of pdf shaping. as can be seen, it learned. 
 
 
-
-
+![just at the start of pdf training](at_end_pdf_training.png "at_start_pdf")
 
 
