@@ -30,7 +30,7 @@ Using PDF shaping does not significantly improve results. The error distribution
   
 ## F1 plus F2 model not trained. Training done on PDF shaping only
 
-To see the effect of PDF shaping and prove that it works. I needed a model that predicted badly. So, I initialized the F1 plus F2 model but did not train it. Therefore, it can make bad prediction and have a non-gaussian and non zero mean just before starting PDF shaping. This is the error distribution just before PDF shaping training. 
+To see the effect of PDF shaping and prove that it works. I needed a model that predicted badly. So, I initialized the F1 plus F2 model but did not train it. Therefore, it can make bad predictions where the error has a non-gaussian and non zero mean just before starting PDF shaping. This is the error distribution just before PDF shaping training. 
 
 
 ![just at the start of pdf training](at_start_pdf_training.png "at_start_pdf")
