@@ -417,6 +417,18 @@ class PDFshapingUtils:
         right = torch.exp(   -(x - mu)**2 / (2 * sigma)    )
         self.impulse_func_vector_vals = left * right
         
+    def updateImpulseGaussian_with_new_standard_deviation(self): 
+        
+        self.std_impulse =    0.1   
+        
+        mu    = self.mean_impulse
+        sigma = self.std_impulse  
+        x     = self.x_range_impulse_func
+   
+        left  = 1 / (    torch.sqrt(   2 * torch.tensor(math.pi)   ) * torch.sqrt(torch.tensor(sigma) )    )
+        right = torch.exp(   -(x - mu)**2 / (2 * sigma)    )
+        self.impulse_func_vector_vals = left * right
+        
     def initializeImpulseToOtherShapes(self): 
         
         ## 4000   ## the error is in this range 
