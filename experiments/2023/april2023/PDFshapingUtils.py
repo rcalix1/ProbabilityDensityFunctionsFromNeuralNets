@@ -39,17 +39,19 @@ class PDFshapingUtils:
         self.N_EPOCHS     = 2000                            
         self.N_EPOCHS_PDF = 2000
         self.batch_size = 16    
-        self.learning_rate             =  0.001      ## 0.1        ## 0.01   ## 1e-5 
-        self.learning_rate_pdfcontrol  =  0.001      ## 0.0001     ## 0.00001       ## 0.000001
+        self.learning_rate             =  0.001      ## 0.001        ## 0.01   ## 1e-5 
+        self.learning_rate_pdfcontrol  =  0.001      ## 0.001     ## 0.00001       ## 0.000001
 
         ## define mean and standard deviation of target Gaussian distribution (impulse function)
         self.mean_impulse = 0.
-        self.std_impulse  = 0.0001
+        self.std_impulse  = 0.01
         self.x_range_impulse_func = None 
         self.impulse_func_vector_vals = None
         self.N_error_range =  20          ## 20  ## 10   ## error between pred and real range (-20, 20)
         self.N_error_range_step_size = 0.01
         self.sigma_func_vector_vals = None
+        
+        self.detected_error_range = 0
         
         self.h = 0.9                      ## 0.7    ## 0.05     ## 0.03                    ## 0.05 >
         
@@ -129,6 +131,12 @@ class PDFshapingUtils:
             print((i, name))
             self.dict_ids_to_names[i] = name
             self.dict_ids_to_names_reverse[name] = i
+            
+    def check_error_range( self, max_error_detected ):
+        if max_error_detected > self.N_error_range:
+            self.N_error_range =  torch.tensor(   max_error_detected.clone().detach() )
+        self.initializeImpulseGaussian()
+        
     
     def convert_pd_data_to_numpy(self):
         self.CFDdata_np = self.CFD_raw_data.to_numpy()
@@ -291,7 +299,7 @@ class PDFshapingUtils:
         plt.ylabel('R**2')
         ## plt.legend()
     
-        file_name = 'images/300dpiShaft' + self.the_string + '.png'
+        file_name = 'images/300dpi' + self.the_string + '.png'
         plt.savefig(file_name, dpi=300)
 
         plt.show()
