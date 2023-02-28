@@ -43,3 +43,9 @@ And this is the plot at the end of pdf shaping. As can be seen, it learned.
 ![just at the start of pdf training](at_end_pdf_training.png "at_start_pdf")
 
 
+## Details of the analysis
+
+For more detailes of the analysis, go here:
+
+https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/tree/main/experiments/2023/april2023
+
