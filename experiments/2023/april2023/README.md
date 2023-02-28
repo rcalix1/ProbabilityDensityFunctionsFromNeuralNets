@@ -1,4 +1,4 @@
-## Experiment 1 using the Hong dataset
+## Experiment 1 - using the Hong dataset
 
 Several proofs showing how PDF shaping works.
 
@@ -22,3 +22,6 @@ Testing R**2 - Output: 0 o_y 0.915217627422392
 
 Using PDF shaping does not significantly improve results. The error distribution after linear plus non linear training is as follows
 
+![After F1 PLUS f2 TRAINING](F1plusf2_training.png "WITH TRAINING")
+  
+  
