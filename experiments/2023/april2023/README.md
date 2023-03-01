@@ -43,7 +43,7 @@ And this is the plot at the end of pdf shaping. As can be seen, it learned.
 ![just at the start of pdf training](at_end_pdf_training.png "at_start_pdf")
   
 
-## The R**2 results of just PDF
+## The R**2 results of just PDF shaping
   
 As can be seen in this plot, the R**2 improved showing further evidence that PDF shaping learns.
   
