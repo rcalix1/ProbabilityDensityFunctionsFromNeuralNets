@@ -41,6 +41,27 @@ And this is the plot at the end of pdf shaping. As can be seen, it learned.
 
 
 ![just at the start of pdf training](at_end_pdf_training.png "at_start_pdf")
+  
+
+## The R**2 results of just PDF
+  
+As can be seen in this plot, the R**2 improved showing further evidence that PDF shaping learns.
+  
+![r2 plot for pdf training](R2plot.png "r2 plot")
+  
+And the final scores after 16,000 or so epochs of just PDF training were:
+  
+Training loss: tensor(0.1661, grad_fn=<MseLossBackward0>)
+  
+Training R**2:     0.8404849405287553
+  
+
+Test loss - descaled: tensor(0.7869, grad_fn=<MseLossBackward0>)
+  
+Testing R**2 - scaled: 0.8289912890034156
+  
+
+Testing R**2 - Output: 0 o_y 0.8289912984525767
 
 
 ## Details of the analysis
