@@ -35,7 +35,11 @@ To see the effect of PDF shaping and prove that it works. I needed a model that 
 
 ![just at the start of pdf training](at_start_pdf_training.png "at_start_pdf")
 
+The following gif show an animation of the PDF shaping process from start to finish.
+  
 
+![pdf shaping gif](pdf_shaping_in_action.gif "gif_pdf")
+  
 
 And this is the plot at the end of pdf shaping. As can be seen, it learned. 
 
