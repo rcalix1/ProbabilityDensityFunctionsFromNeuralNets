@@ -70,7 +70,7 @@ Testing R**2 - Output: 0 o_y 0.8289912984525767
 
 ## Details of the analysis
 
-For more detailes of the analysis, go here:
+For more details of the analysis, go here:
 
 https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/tree/main/experiments/2023/april2023
 
