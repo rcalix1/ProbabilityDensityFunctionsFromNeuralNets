@@ -45,9 +45,11 @@ class PDFshapingUtils:
         ## define mean and standard deviation of target Gaussian distribution (impulse function)
         self.mean_impulse = 0.
         self.std_impulse  = 0.01
+        self.kde_std      = 3.0
         self.x_range_impulse_func = None 
         self.impulse_func_vector_vals = None
-        self.N_error_range =  5          ## 20  ## 10   ## error between pred and real range (-20, 20)
+        self.quadratic_weights = None
+        self.N_error_range =  20          ## 20  ## 10   ## error between pred and real range (-20, 20)
         self.N_error_range_step_size = 0.01
         self.sigma_func_vector_vals = None
         
@@ -107,7 +109,11 @@ class PDFshapingUtils:
         self.plot_low_score  = 0.7
         self.plot_high_score = 1.03
         
-        self.K = lambda x: 1 * torch.exp(-x**2/2) / torch.sqrt(2 * torch.tensor(math.pi))
+        self.K = lambda x: 1*torch.exp(
+                                         -(      ( x/self.kde_std )**2        ) * ( 1/2 ) 
+                                      ) / ( 
+                                            torch.sqrt( 2 * torch.tensor(math.pi) ) * self.kde_std
+                                           )
         
         self.model = None
         
@@ -416,6 +422,8 @@ class PDFshapingUtils:
         left  = 1 / (    torch.sqrt(   2 * torch.tensor(math.pi)   ) * torch.sqrt(torch.tensor(sigma) )    )
         right = torch.exp(   -(x - mu)**2 / (2 * sigma)    )
         self.impulse_func_vector_vals = left * right
+        
+        self.quadratic_weights = x**2
         
     def updateImpulseGaussian_with_new_standard_deviation(self, new_standard_dev): 
         
