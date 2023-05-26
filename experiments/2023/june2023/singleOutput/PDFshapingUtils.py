@@ -351,7 +351,7 @@ class PDFshapingUtils:
             fig, ax = plt.subplots(figsize =(10, 7))
             plt.hist(error, bins=n_bins, density = True, color='r', alpha=0.5)
             sns.distplot(error, bins=n_bins, color="blue")
-            plt.title( str(self.dict_ids_to_names[self.output_indeces[z]]) + ' Errors NO PDF shaping' )
+            plt.title( str(self.dict_ids_to_names[self.output_indeces[z]]) + ' ' )
             plt.show()
         
    
