@@ -32,7 +32,7 @@ async function runExample1() {
   const outputMap = await session.run([tensorX]);
   const outputData = outputMap.get('variable');
   
-  
+  alert(outputData);
  
 
   // PREDS DIV 
