@@ -8,8 +8,10 @@ async function runExample1() {
   // Create an ONNX inference session with default backend.
   const session = new onnx.InferenceSession();
  
+  alert("one");
   await session.loadModel("./xgboost_tuyere_t_k.onnx");
-
+  alert("two");
+    
   var x = new Float32Array(1, 6);
 
  
