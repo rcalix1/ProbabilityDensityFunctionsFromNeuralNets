@@ -8,7 +8,7 @@ async function runExample1() {
   // Create an ONNX inference session with default backend.
   const session = new onnx.InferenceSession();
  
-  await session.loadModel("./s536NewShaftPDFshapingRC.onnx");
+  await session.loadModel("./xgboost_tuyere_t_k.onnx");
 
   var x = new Float32Array(1, 6);
 
@@ -43,25 +43,22 @@ async function runExample1() {
 
   predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
  <table>
+ 
   <tr>
-  <td> o_shaft_top_gas_temp_c</td>
+  <td> o_tuyere_t_k</td>
   <td id="c1td0"> ${outputData.data[0].toFixed(2)} </td>
   </tr>
+  
   <tr>
-  <td> o_shaft_press_drop_pa</td>
+  <td> ??? </td>
   <td id="c1td1"> ${outputData.data[1].toFixed(2)} </td>
   </tr> 
-  <tr><td> o_shaft_coke_rate_kg_thm</td>
-  <td id="c1td2"> ${outputData.data[2].toFixed(2)} </td>
-  </tr>
-  <tr>
-  <td> o_shaft_co_v_perc</td>
-  <td id="c1td3"> ${outputData.data[3].toFixed(2)} </td>
-  </tr> 
-  <tr>
-  <td> o_shaft_co2_v_perc</td>
-  <td id="c1td4"> ${outputData.data[4].toFixed(2)} </td>
-  </tr> 
+  
+ 
+ 
+  
+ 
+  
  </table>   `;
  
 
@@ -76,7 +73,7 @@ async function runExample2() {
   // Create an ONNX inference session with default backend.
   const session = new onnx.InferenceSession();
  
-  await session.loadModel("./s536NewShaftPDFshapingRC.onnx");
+  await session.loadModel("./xgboost_tuyere_t_k.onnx");
 
   var x = new Float32Array(1, 6);
 
@@ -111,25 +108,19 @@ async function runExample2() {
 
   predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
  <table>
+ 
   <tr>
-  <td> o_shaft_top_gas_temp_c</td>
+  <td> o_tuyere_t_k</td>
   <td id="c2td0"> ${outputData.data[0].toFixed(2)} </td>
   </tr>
+  
   <tr>
-  <td>o_shaft_press_drop_pa</td>
+  <td>??</td>
   <td id="c2td1"> ${outputData.data[1].toFixed(2)} </td>
   </tr> 
-  <tr><td> o_shaft_coke_rate_kg_thm</td>
-  <td id="c2td2"> ${outputData.data[2].toFixed(2)} </td>
-  </tr>
-  <tr>
-  <td> o_shaft_co_v_perc</td>
-  <td id="c2td3"> ${outputData.data[3].toFixed(2)} </td>
-  </tr> 
-  <tr>
-  <td> o_shaft_co2_v_perc</td>
-  <td id="c2td4"> ${outputData.data[4].toFixed(2)} </td>
-  </tr> 
+  
+ 
+  
  </table>   `;
  
 
@@ -142,44 +133,32 @@ async function runDiff() {
     
     var c1td0 = parseFloat( document.getElementById('c1td0').innerHTML );
     var c1td1 = parseFloat( document.getElementById('c1td1').innerHTML );
-    var c1td2 = parseFloat( document.getElementById('c1td2').innerHTML );
-    var c1td3 = parseFloat( document.getElementById('c1td3').innerHTML );
-    var c1td4 = parseFloat( document.getElementById('c1td4').innerHTML );
+ 
     
     var c2td0 = parseFloat( document.getElementById('c2td0').innerHTML );
     var c2td1 = parseFloat( document.getElementById('c2td1').innerHTML );
-    var c2td2 = parseFloat( document.getElementById('c2td2').innerHTML );
-    var c2td3 = parseFloat( document.getElementById('c2td3').innerHTML );
-    var c2td4 = parseFloat( document.getElementById('c2td4').innerHTML );
+   
     
     td0 = c1td0 - c2td0;
     td1 = c1td1 - c2td1;
-    td2 = c1td2 - c2td2;
-    td3 = c1td3 - c2td3;
-    td4 = c1td4 - c2td4;
+ 
 
  
      difference.innerHTML = `<hr> Difference is: <br/> 
  <table>
+ 
   <tr>
-  <td> o_shaft_top_gas_temp_c</td>
+  <td> o_tuyere_t_k</td>
   <td> ${td0.toFixed(2)} </td>
   </tr>
+  
   <tr>
-  <td> o_shaft_press_drop_pa</td>
+  <td>?</td>
   <td> ${td1.toFixed(2)} </td>
   </tr> 
-  <tr><td> o_shaft_coke_rate_kg_thm</td>
-  <td> ${td2.toFixed(2)} </td>
-  </tr>
-  <tr>
-  <td> o_shaft_co_v_perc</td>
-  <td> ${td3.toFixed(2)} </td>
-  </tr> 
-  <tr>
-  <td> o_shaft_co2_v_perc</td>
-  <td> ${td4.toFixed(2)} </td>
-  </tr> 
+  
+
+  
  </table>   `;
     
 }
