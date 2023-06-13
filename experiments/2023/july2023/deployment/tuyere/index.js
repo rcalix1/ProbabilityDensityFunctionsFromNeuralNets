@@ -51,7 +51,7 @@ async function runExample1() {
   
   <tr>
   <td> ??? </td>
-  <td id="c1td1"> ${outputData.data[1].toFixed(2)} </td>
+  <td id="c1td1"> ${outputData.data[0].toFixed(2)} </td>
   </tr> 
   
  
@@ -62,7 +62,7 @@ async function runExample1() {
  </table>   `;
  
 
-runDiff();
+// runDiff();
 
 }
 
@@ -116,7 +116,7 @@ async function runExample2() {
   
   <tr>
   <td>??</td>
-  <td id="c2td1"> ${outputData.data[1].toFixed(2)} </td>
+  <td id="c2td1"> ${outputData.data[0].toFixed(2)} </td>
   </tr> 
   
  
@@ -124,7 +124,7 @@ async function runExample2() {
  </table>   `;
  
 
-runDiff();
+// runDiff();
 
 }
 
