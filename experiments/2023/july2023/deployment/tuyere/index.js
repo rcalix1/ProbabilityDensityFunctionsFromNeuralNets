@@ -9,7 +9,7 @@ async function runExample1() {
   const session = new onnx.InferenceSession();
  
 
-  await session.loadModel("./pipeline_xgboost_tuyere_t_k.onnx");
+  await session.loadModel("./xgboost_tuyere_t_k_2.onnx");
  
     
   var x = new Float32Array(1, 6);
@@ -74,7 +74,7 @@ async function runExample2() {
   // Create an ONNX inference session with default backend.
   const session = new onnx.InferenceSession();
  
-  await session.loadModel("./pipeline_xgboost_tuyere_t_k.onnx");
+  await session.loadModel("./xgboost_tuyere_t_k_2.onnx");
 
   var x = new Float32Array(1, 6);
 
