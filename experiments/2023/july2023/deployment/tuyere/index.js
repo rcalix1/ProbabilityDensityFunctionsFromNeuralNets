@@ -26,24 +26,24 @@ async function runExample1() {
     
   const results = await session.run(feeds);
     
-  const outputData = results.variable.data;
+  const outputData = results.variable;
     
 
   // PREDS DIV 
   const predictions = document.getElementById('predictions1');
   
 
-  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.length} with values being: <br/> 
+  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
  <table>
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c1td0"> ${outputData.toFixed(2)} </td>
+  <td id="c1td0"> ${outputData.data.toFixed(2)} </td>
   </tr>
   
   <tr>
   <td> ??? </td>
-  <td id="c1td1"> ${outputData.toFixed(2)} </td>
+  <td id="c1td1"> ${outputData.data.toFixed(2)} </td>
   </tr> 
   
  
@@ -83,7 +83,7 @@ async function runExample2() {
     
   const results = await session.run(feeds);
     
-  const outputData = results.variable.data;
+  const outputData = results.variable;
     
 
 
@@ -93,17 +93,17 @@ async function runExample2() {
  
 
 
-  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.length} with values being: <br/> 
+  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
  <table>
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c2td0"> ${outputData.toFixed(2)} </td>
+  <td id="c2td0"> ${outputData.data.toFixed(2)} </td>
   </tr>
   
   <tr>
   <td>??</td>
-  <td id="c2td1"> ${outputData.toFixed(2)} </td>
+  <td id="c2td1"> ${outputData.data.toFixed(2)} </td>
   </tr> 
   
  
