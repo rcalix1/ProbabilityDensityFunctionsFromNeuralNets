@@ -1,21 +1,15 @@
 
 
-
+           
 
 async function runExample1() {
     
 
   // Create an ONNX inference session with default backend.
-  const session = new onnx.InferenceSession();
- 
 
-  await session.loadModel("./xgboost_tuyere_t_k_2.onnx");
- 
-    
+  const session = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+
   var x = new Float32Array(1, 6);
-
- 
-  
 
   var x = [];
   x[0] = document.getElementById('box0c1').value;
@@ -25,34 +19,33 @@ async function runExample1() {
   x[4] = document.getElementById('box4c1').value;
   x[5] = document.getElementById('box5c1').value;
  
-
-  
-  const tensorX = new onnx.Tensor(x, 'float32', [1, 6]);
-  
    
+  const dataA = Float32Array.from([0.0, 0.0, 37.9, 500.0, 21.0, 1459.817]);
   
-  const outputMap = await session.run([tensorX]);
-  const outputData = outputMap.get('variable');
-  
-
+  const tensorX = new ort.Tensor('float32', x, [1, 6]);
+           
+  const feeds = { float_input: tensorX};
+    
+  const results = await session.run(feeds);
+    
+  const outputData = results.variable.data;
+    
 
   // PREDS DIV 
   const predictions = document.getElementById('predictions1');
   
- 
 
-
-  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
+  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.length} with values being: <br/> 
  <table>
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c1td0"> ${outputData.data[0].toFixed(2)} </td>
+  <td id="c1td0"> ${outputData.toFixed(2)} </td>
   </tr>
   
   <tr>
   <td> ??? </td>
-  <td id="c1td1"> ${outputData.data[0].toFixed(2)} </td>
+  <td id="c1td1"> ${outputData.toFixed(2)} </td>
   </tr> 
   
  
