@@ -38,12 +38,12 @@ async function runExample1() {
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c1td0"> ${outputData.data.toFixed(2)} </td>
+  <td id="c1td0"> ${outputData.data} </td>
   </tr>
   
   <tr>
   <td> ??? </td>
-  <td id="c1td1"> ${outputData.data.toFixed(2)} </td>
+  <td id="c1td1"> ${outputData.data} </td>
   </tr> 
   
  
@@ -98,12 +98,12 @@ async function runExample2() {
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c2td0"> ${outputData.data.toFixed(2)} </td>
+  <td id="c2td0"> ${outputData.data} </td>
   </tr>
   
   <tr>
   <td>??</td>
-  <td id="c2td1"> ${outputData.data.toFixed(2)} </td>
+  <td id="c2td1"> ${outputData.data} </td>
   </tr> 
   
  
