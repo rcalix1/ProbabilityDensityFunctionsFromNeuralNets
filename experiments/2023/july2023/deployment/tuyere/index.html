@@ -1,7 +1,7 @@
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/onnxjs@0.1.7/dist/onnx.min.js"></script>
-  
+  <!-- import ONNXRuntime Web from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
   <script src="./index.js"></script>
   
   <style>
@@ -45,8 +45,7 @@
             <div id = "leftbox">
                  <h2>Case 1</h2>
   
- 
-  
+
   <input type="text" id="box0c1" value="0"> i_h2_inj_kg_thm <br/>
   <input type="text" id="box1c1" value="90"> i_pul_coal_inj_kg_thm <br/>
   <input type="text" id="box2c1" value="0"> i_nat_gas_inj_kg_thm <br/>
@@ -64,7 +63,6 @@
             <div id = "middlebox">
                 <h2>Case 2</h2>
               
-
                 
   <input type="text" id="box0c2" value="0"> i_h2_inj_kg_thm <br/>
   <input type="text" id="box1c2" value="90"> i_pul_coal_inj_kg_thm <br/>
