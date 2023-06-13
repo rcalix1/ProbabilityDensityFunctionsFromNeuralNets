@@ -8,9 +8,9 @@ async function runExample1() {
   // Create an ONNX inference session with default backend.
   const session = new onnx.InferenceSession();
  
-  alert("one");
+
   await session.loadModel("./xgboost_tuyere_t_k.onnx");
-  alert("two");
+ 
     
   var x = new Float32Array(1, 6);
 
@@ -34,9 +34,7 @@ async function runExample1() {
   const outputMap = await session.run([tensorX]);
   const outputData = outputMap.get('variable');
   
-  alert("hello");
-  alert(outputData);
- 
+
 
   // PREDS DIV 
   const predictions = document.getElementById('predictions1');
