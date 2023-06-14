@@ -17,7 +17,7 @@ async function getOutput1() {
            const tensorX = new ort.Tensor('float32', x, [1, 6]);
            const feeds = { float_input: tensorX};
            const results = await session.run(feeds);
-           let outputData = results.variable;
+           let outputData = results.variable.data;
            alert(outputData);
            return outputData;
  
@@ -43,7 +43,7 @@ async function getOutput2() {
            const tensorX = new ort.Tensor('float32', x, [1, 6]);
            const feeds = { float_input: tensorX};
            const results = await session.run(feeds);
-           let outputData = results.variable;
+           let outputData = results.variable.data;
            return outputData;
            
 }
@@ -67,12 +67,12 @@ async function runExample1() {
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c1td0"> ${outputData1.data} </td>
+  <td id="c1td0"> ${outputData1} </td>
   </tr>
   
   <tr>
   <td> o_tuyere_exit_velo_m_s </td>
-  <td id="c1td1"> ${outputData2.data} </td>
+  <td id="c1td1"> ${outputData2} </td>
   </tr> 
   
  </table>   `;
@@ -98,12 +98,12 @@ async function runExample2() {
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c2td0"> ${outputData1.data} </td>
+  <td id="c2td0"> ${outputData1} </td>
   </tr>
   
   <tr>
   <td> o_tuyere_exit_velo_m_s </td>
-  <td id="c2td1"> ${outputData2.data} </td>
+  <td id="c2td1"> ${outputData2} </td>
   </tr> 
    
  </table>   `;
