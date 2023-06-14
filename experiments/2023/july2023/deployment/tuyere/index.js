@@ -53,8 +53,8 @@ async function runExample1() {
     
 
   
- const outputData1 = getOutput1(); 
- const outputData2 = getOutput2();   
+ let outputData1 = getOutput1(); 
+ let outputData2 = getOutput2();   
  
     
 
@@ -85,8 +85,8 @@ runDiff();
 
 async function runExample2() {
            
- const outputData1 = getOutput1(); 
- const outputData2 = getOutput2();   
+ let outputData1 = getOutput1(); 
+ let outputData2 = getOutput2();   
  
 
   // PREDS DIV 
