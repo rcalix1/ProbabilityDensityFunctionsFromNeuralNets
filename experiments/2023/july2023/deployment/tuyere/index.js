@@ -1,56 +1,81 @@
 
+async function getOutput1() {
+           
+           // Create an ONNX inference session with default backend.
+           const session = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
 
+           var x = new Float32Array(1, 6);
+
+           var x = [];
+           x[0] = document.getElementById('box0c1').value;
+           x[1] = document.getElementById('box1c1').value;
+           x[2] = document.getElementById('box2c1').value;
+           x[3] = document.getElementById('box3c1').value;
+           x[4] = document.getElementById('box4c1').value;
+           x[5] = document.getElementById('box5c1').value;
+           
+           const tensorX = new ort.Tensor('float32', x, [1, 6]);
+           const feeds = { float_input: tensorX};
+           const results = await session.run(feeds);
+           const outputData = results.variable;
+           return outputData
+ 
+   
+}
+
+async function getOutput2() {
+          
+           
+            // Create an ONNX inference session with default backend.
+           const session = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+
+           var x = new Float32Array(1, 6);
+
+           var x = [];
+           x[0] = document.getElementById('box0c1').value;
+           x[1] = document.getElementById('box1c1').value;
+           x[2] = document.getElementById('box2c1').value;
+           x[3] = document.getElementById('box3c1').value;
+           x[4] = document.getElementById('box4c1').value;
+           x[5] = document.getElementById('box5c1').value;
+           
+           const tensorX = new ort.Tensor('float32', x, [1, 6]);
+           const feeds = { float_input: tensorX};
+           const results = await session.run(feeds);
+           const outputData = results.variable;
+           return outputData
+           
+}
            
 
 async function runExample1() {
     
 
-  // Create an ONNX inference session with default backend.
-
-  const session = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
-
-  var x = new Float32Array(1, 6);
-
-  var x = [];
-  x[0] = document.getElementById('box0c1').value;
-  x[1] = document.getElementById('box1c1').value;
-  x[2] = document.getElementById('box2c1').value;
-  x[3] = document.getElementById('box3c1').value;
-  x[4] = document.getElementById('box4c1').value;
-  x[5] = document.getElementById('box5c1').value;
+  
+ outputData1 = getOutput1(); 
+ outputData2 = getOutput2();   
  
-   
-  const tensorX = new ort.Tensor('float32', x, [1, 6]);
-           
-  const feeds = { float_input: tensorX};
-    
-  const results = await session.run(feeds);
-    
-  const outputData = results.variable;
     
 
   // PREDS DIV 
   const predictions = document.getElementById('predictions1');
   
 
-  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
+ predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData1.data.length} with values being: <br/> 
+ 
  <table>
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c1td0"> ${outputData.data} </td>
+  <td id="c1td0"> ${outputData1.data} </td>
   </tr>
   
   <tr>
-  <td> ??? </td>
-  <td id="c1td1"> ${outputData.data} </td>
+  <td> o_tuyere_exit_velo_m_s </td>
+  <td id="c1td1"> ${outputData2.data} </td>
   </tr> 
   
- 
- 
-  
- 
-  
+
  </table>   `;
  
 
@@ -60,50 +85,26 @@ runDiff();
 
 
 async function runExample2() {
-    
-
-  // Create an ONNX inference session with default backend.
- const session = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
-
-
-  var x = new Float32Array(1, 6);
            
-
-  var x = [];
-  x[0] = document.getElementById('box0c2').value;
-  x[1] = document.getElementById('box1c2').value;
-  x[2] = document.getElementById('box2c2').value;
-  x[3] = document.getElementById('box3c2').value;
-  x[4] = document.getElementById('box4c2').value;
-  x[5] = document.getElementById('box5c2').value;
+ outputData1 = getOutput1(); 
+ outputData2 = getOutput2();   
  
-  const tensorX = new ort.Tensor('float32', x, [1, 6]);
-           
-  const feeds = { float_input: tensorX};
-    
-  const results = await session.run(feeds);
-    
-  const outputData = results.variable;
-    
-
 
   // PREDS DIV 
   const predictions = document.getElementById('predictions2');
   
- 
 
-
-  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData.data.length} with values being: <br/> 
+  predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData1.data.length} with values being: <br/> 
  <table>
  
   <tr>
   <td> o_tuyere_t_k</td>
-  <td id="c2td0"> ${outputData.data} </td>
+  <td id="c2td0"> ${outputData1.data} </td>
   </tr>
   
   <tr>
-  <td>??</td>
-  <td id="c2td1"> ${outputData.data} </td>
+  <td> o_tuyere_exit_velo_m_s </td>
+  <td id="c2td1"> ${outputData2.data} </td>
   </tr> 
   
  
@@ -130,8 +131,8 @@ async function runDiff() {
     td1 = c1td1 - c2td1;
  
 
- 
      difference.innerHTML = `<hr> Difference is: <br/> 
+     
  <table>
  
   <tr>
@@ -140,7 +141,7 @@ async function runDiff() {
   </tr>
   
   <tr>
-  <td>?</td>
+  <td> o_tuyere_exit_velo_m_s </td>
   <td> ${td1.toFixed(2)} </td>
   </tr> 
   
