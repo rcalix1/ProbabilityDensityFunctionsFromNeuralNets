@@ -61,8 +61,7 @@ async function runExample1() {
   const predictions = document.getElementById('predictions1');
   
 
- // predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData1.data.length} with values being: <br/> 
- 
+ predictions.innerHTML = `<hr> Got an output Tensor with values being: <br/> 
  <table>
  
   <tr>
@@ -75,7 +74,6 @@ async function runExample1() {
   <td id="c1td1"> ${outputData2.data} </td>
   </tr> 
   
-
  </table>   `;
  
 
@@ -94,7 +92,7 @@ async function runExample2() {
   const predictions = document.getElementById('predictions2');
   
 
-  // predictions.innerHTML = `<hr> Got an output Tensor of size ${outputData1.data.length} with values being: <br/> 
+  predictions.innerHTML = `<hr> Got an output Tensor  with values being: <br/> 
  <table>
  
   <tr>
@@ -106,9 +104,7 @@ async function runExample2() {
   <td> o_tuyere_exit_velo_m_s </td>
   <td id="c2td1"> ${outputData2.data} </td>
   </tr> 
-  
- 
-  
+   
  </table>   `;
  
 
