@@ -15,14 +15,14 @@ async function runExample1() {
            x[4] = document.getElementById('box4c1').value;
            x[5] = document.getElementById('box5c1').value;
      
-           const tensorX = new ort.Tensor('float32', x, [1, 6]);
-           const feeds = { float_input: tensorX};
+           let tensorX = new ort.Tensor('float32', x, [1, 6]);
+           let feeds = { float_input: tensorX};
            
            
            
-           const session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
-           const results1 = await session1.run(feeds);
-           const outputData1 = results1.variable.data;
+           let session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+           let results1 = await session1.run(feeds);
+           let outputData1 = results1.variable.data;
       
           
       
@@ -33,7 +33,7 @@ async function runExample1() {
 
 
   // PREDS DIV 
-  const predictions = document.getElementById('predictions1');
+  let predictions = document.getElementById('predictions1');
   
 
  predictions.innerHTML = `<hr> Got an output Tensor with values being: <br/> 
@@ -70,25 +70,25 @@ async function runExample2() {
            x[5] = document.getElementById('box5c2').value;
            
 
-           const tensorX = new ort.Tensor('float32', x, [1, 6]);
-           const feeds = { float_input: tensorX};
+           let tensorX = new ort.Tensor('float32', x, [1, 6]);
+           let feeds = { float_input: tensorX};
            
            
-           const session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
-           const results1 = await session1.run(feeds);
-           const outputData1 = results1.variable.data;
+           let session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+           let results1 = await session1.run(feeds);
+           let outputData1 = results1.variable.data;
 
  
 
-           const session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
-           const results2 = await session2.run(feeds);
-           const outputData2 = results2.variable.data;
+           let session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+           let results2 = await session2.run(feeds);
+           let outputData2 = results2.variable.data;
           
  
  
 
   // PREDS DIV 
-  const predictions = document.getElementById('predictions2');
+  let predictions = document.getElementById('predictions2');
   
 
   predictions.innerHTML = `<hr> Got an output Tensor  with values being: <br/> 
