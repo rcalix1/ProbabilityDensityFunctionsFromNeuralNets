@@ -18,6 +18,7 @@ async function getOutput1() {
            const feeds = { float_input: tensorX};
            const results = await session.run(feeds);
            let outputData = results.variable;
+           alert(outputData);
            return outputData;
  
    
