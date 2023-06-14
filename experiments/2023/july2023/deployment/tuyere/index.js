@@ -26,9 +26,9 @@ async function runExample1() {
       
           
       
-           const session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
-           const results2 = await session2.run(feeds);
-           const outputData2 = results2.variable.data;
+           let session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+           let results2 = await session2.run(feeds);
+           let outputData2 = results2.variable.data;
           
 
 
