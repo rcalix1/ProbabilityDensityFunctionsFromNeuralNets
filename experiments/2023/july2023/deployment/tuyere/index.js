@@ -17,7 +17,7 @@ async function getOutput1() {
            const tensorX = new ort.Tensor('float32', x, [1, 6]);
            const feeds = { float_input: tensorX};
            const results = await session.run(feeds);
-           const outputData = results.variable;
+           let outputData = results.variable;
            return outputData
  
    
@@ -42,7 +42,7 @@ async function getOutput2() {
            const tensorX = new ort.Tensor('float32', x, [1, 6]);
            const feeds = { float_input: tensorX};
            const results = await session.run(feeds);
-           const outputData = results.variable;
+           let outputData = results.variable;
            return outputData
            
 }
