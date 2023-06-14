@@ -1,60 +1,34 @@
 
-async function getOutput1() {
-           
-           // Create an ONNX inference session with default backend.
-           const session = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
-
-           var x = new Float32Array(1, 6);
-
-           var x = [];
-           x[0] = document.getElementById('box0c1').value;
-           x[1] = document.getElementById('box1c1').value;
-           x[2] = document.getElementById('box2c1').value;
-           x[3] = document.getElementById('box3c1').value;
-           x[4] = document.getElementById('box4c1').value;
-           x[5] = document.getElementById('box5c1').value;
-           
-           const tensorX = new ort.Tensor('float32', x, [1, 6]);
-           const feeds = { float_input: tensorX};
-           const results = await session.run(feeds);
-           let outputData = results.variable.data;
-           alert(outputData);
-           return outputData;
- 
-   
-}
-
-async function getOutput2() {
-          
-           
-            // Create an ONNX inference session with default backend.
-           const session = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
-
-           var x = new Float32Array(1, 6);
-
-           var x = [];
-           x[0] = document.getElementById('box0c1').value;
-           x[1] = document.getElementById('box1c1').value;
-           x[2] = document.getElementById('box2c1').value;
-           x[3] = document.getElementById('box3c1').value;
-           x[4] = document.getElementById('box4c1').value;
-           x[5] = document.getElementById('box5c1').value;
-           
-           const tensorX = new ort.Tensor('float32', x, [1, 6]);
-           const feeds = { float_input: tensorX};
-           const results = await session.run(feeds);
-           let outputData = results.variable.data;
-           return outputData;
-           
-}
-           
+      
 
 async function runExample1() {
     
 
-  
- let outputData1 = getOutput1(); 
- let outputData2 = getOutput2();   
+           var x = new Float32Array(1, 6);
+
+           var x = [];
+           x[0] = document.getElementById('box0c1').value;
+           x[1] = document.getElementById('box1c1').value;
+           x[2] = document.getElementById('box2c1').value;
+           x[3] = document.getElementById('box3c1').value;
+           x[4] = document.getElementById('box4c1').value;
+           x[5] = document.getElementById('box5c1').value;
+     
+           const tensorX = new ort.Tensor('float32', x, [1, 6]);
+           const feeds = { float_input: tensorX};
+           
+           
+           
+           const session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+           const results1 = await session1.run(feeds);
+           const outputData1 = results1.variable.data;
+
+ 
+
+           const session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+           const results2 = await session2.run(feeds);
+           const outputData2 = results2.variable.data;
+          
  
     
 
@@ -85,8 +59,32 @@ runDiff();
 
 async function runExample2() {
            
- let outputData1 = getOutput1(); 
- let outputData2 = getOutput2();   
+           var x = new Float32Array(1, 6);
+
+           var x = [];
+           x[0] = document.getElementById('box0c1').value;
+           x[1] = document.getElementById('box1c1').value;
+           x[2] = document.getElementById('box2c1').value;
+           x[3] = document.getElementById('box3c1').value;
+           x[4] = document.getElementById('box4c1').value;
+           x[5] = document.getElementById('box5c1').value;
+           
+
+           const tensorX = new ort.Tensor('float32', x, [1, 6]);
+           const feeds = { float_input: tensorX};
+           
+           
+           const session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+           const results1 = await session1.run(feeds);
+           const outputData1 = results1.variable.data;
+
+ 
+
+           const session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+           const results2 = await session2.run(feeds);
+           const outputData2 = results2.variable.data;
+          
+ 
  
 
   // PREDS DIV 
