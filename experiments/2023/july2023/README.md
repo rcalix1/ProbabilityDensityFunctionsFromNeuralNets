@@ -1,3 +1,3 @@
 ## July 2023 experiments
 
-* xgboost models and deployment
+* xgboost, F1 plus F2 NN models, GANs, and deployment
