@@ -1,0 +1,121 @@
+<html>
+<head>
+  <!-- import ONNXRuntime Web from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+  <script src="./index.js"></script>
+  
+  <style>
+      
+      table, th, td {
+           border: 1px solid;
+      }
+      
+      #leftbox {
+                float:left; 
+                width:33%;
+                height:300px;
+      }
+      #middlebox{
+                float:left; 
+                width:33%;
+                height:300px;
+        }
+        #rightbox{
+                float:right;
+                width:33%;
+                height:300px;
+        }
+        h1{
+                color:green;
+                text-align:center;
+        }
+     
+     
+      
+  </style>
+</head>
+<body>
+  <h1>XGBoost and Single-Output models - CFD 894 Samples - Tuyere 6 Inputs and 2 Outputs </h1>
+  
+  
+  
+  
+    <div id = "boxes1">
+              
+            <div id = "leftbox">
+                 <h2>Case 1</h2>
+  
+
+  <input type="text" id="box0c1" value="0"> i_h2_inj_kg_thm <br/>
+  <input type="text" id="box1c1" value="90"> i_pul_coal_inj_kg_thm <br/>
+  <input type="text" id="box2c1" value="0"> i_nat_gas_inj_kg_thm <br/>
+  <input type="text" id="box3c1" value="300"> i_nat_gas_t_k <br/>
+  <input type="text" id="box4c1" value="27"> i_o2_vol_perce <br/>
+  <input type="text" id="box5c1" value="1459.817"> i_hot_blast_temp_k <br/>
+  <div>
+      <input style="background-color:yellow" type="button" value="Run" onclick="runExample1()"/>
+   </div>
+  
+          
+             
+            </div> 
+              
+            <div id = "middlebox">
+                <h2>Case 2</h2>
+              
+                
+  <input type="text" id="box0c2" value="0"> i_h2_inj_kg_thm <br/>
+  <input type="text" id="box1c2" value="90"> i_pul_coal_inj_kg_thm <br/>
+  <input type="text" id="box2c2" value="0"> i_nat_gas_inj_kg_thm <br/>
+  <input type="text" id="box3c2" value="300"> i_nat_gas_t_k <br/>
+  <input type="text" id="box4c2" value="27"> i_o2_vol_perce <br/>
+  <input type="text" id="box5c2" value="1459.817"> i_hot_blast_temp_k <br/>
+  <div>
+  <input style="background-color:yellow" type="button" value="Run" onclick="runExample2()"/>
+   </div> 
+                
+       
+            </div>
+              
+            <div id = "rightbox">
+              
+              
+            </div>
+        </div>
+  
+        <div id = "boxes2">
+              
+            <div id = "leftbox">
+              <h2>Inference 1</h2>
+              
+               <div id="predictions1">
+               </div>
+              
+              
+            </div> 
+              
+            <div id = "middlebox">
+              <h2>Inference 2</h2>
+              
+              <div id="predictions2">
+               </div>
+              
+            </div>
+              
+            <div id = "rightbox">
+                 <h2>Difference</h2>
+                 
+                  <div id="difference">
+               </div>
+               
+               
+             
+            </div>
+        </div>
+  
+
+
+
+ 
+</body>
+</html>
