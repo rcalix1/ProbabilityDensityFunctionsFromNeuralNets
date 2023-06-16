@@ -20,15 +20,19 @@ async function runExample1() {
            
            
            
-           let session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+           let session1 = await ort.InferenceSession.create('./xgboost_raceway_coal_burn_perce_ort.onnx');
            let results1 = await session1.run(feeds);
-           let outputData1 = results1.variable.data;
+           let outputData1 = results1.variable.data.toFixed(2);
       
-          
-      
-           let session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+         
+           let session2 = await ort.InferenceSession.create('./xgboost_raceway_flame_temp_k_ort.onnx');
            let results2 = await session2.run(feeds);
-           let outputData2 = results2.variable.data;
+           let outputData2 = results2.variable.data.toFixed(2);
+      
+      
+           let session3 = await ort.InferenceSession.create('./xgboost_raceway_volume_m_ort.onnx');
+           let results3 = await session3.run(feeds);
+           let outputData3 = results3.variable.data.toFixed(2);
           
 
 
@@ -40,13 +44,18 @@ async function runExample1() {
  <table>
  
   <tr>
-  <td> o_tuyere_t_k</td>
+  <td> o_raceway_coal_burn_perce</td>
   <td id="c1td0"> ${outputData1} </td>
   </tr>
   
   <tr>
-  <td> o_tuyere_exit_velo_m_s </td>
+  <td> o_raceway_flame_temp_k </td>
   <td id="c1td1"> ${outputData2} </td>
+  </tr> 
+  
+  <tr>
+  <td> o_raceway_volume_m </td>
+  <td id="c1td2"> ${outputData3} </td>
   </tr> 
   
  </table>   `;
@@ -74,15 +83,18 @@ async function runExample2() {
            let feeds = { float_input: tensorX};
            
            
-           let session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
+           let session1 = await ort.InferenceSession.create('./xgboost_raceway_coal_burn_perce_ort.onnx');
            let results1 = await session1.run(feeds);
            let outputData1 = results1.variable.data;
 
  
-
-           let session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
+           let session2 = await ort.InferenceSession.create('./xgboost_raceway_flame_temp_k_ort.onnx');
            let results2 = await session2.run(feeds);
            let outputData2 = results2.variable.data;
+      
+           let session3 = await ort.InferenceSession.create('./xgboost_raceway_volume_m_ort.onnx');
+           let results3 = await session3.run(feeds);
+           let outputData3 = results3.variable.data;
           
  
  
@@ -95,13 +107,18 @@ async function runExample2() {
  <table>
  
   <tr>
-  <td> o_tuyere_t_k</td>
+  <td> o_raceway_coal_burn_perce</td>
   <td id="c2td0"> ${outputData1} </td>
   </tr>
   
   <tr>
-  <td> o_tuyere_exit_velo_m_s </td>
+  <td> o_raceway_flame_temp_k </td>
   <td id="c2td1"> ${outputData2} </td>
+  </tr> 
+  
+  <tr>
+  <td> o_raceway_volume_m </td>
+  <td id="c2td2"> ${outputData3} </td>
   </tr> 
    
  </table>   `;
@@ -116,14 +133,16 @@ async function runDiff() {
     
     var c1td0 = parseFloat( document.getElementById('c1td0').innerHTML );
     var c1td1 = parseFloat( document.getElementById('c1td1').innerHTML );
+    var c1td2 = parseFloat( document.getElementById('c1td2').innerHTML );
  
     
     var c2td0 = parseFloat( document.getElementById('c2td0').innerHTML );
     var c2td1 = parseFloat( document.getElementById('c2td1').innerHTML );
-   
+    var c2td2 = parseFloat( document.getElementById('c2td2').innerHTML );
     
     td0 = c1td0 - c2td0;
     td1 = c1td1 - c2td1;
+    td2 = c1td2 - c2td2;
  
 
      difference.innerHTML = `<hr> Difference is: <br/> 
@@ -131,15 +150,19 @@ async function runDiff() {
  <table>
  
   <tr>
-  <td> o_tuyere_t_k</td>
+  <td> o_raceway_coal_burn_perce </td>
   <td> ${td0.toFixed(2)} </td>
   </tr>
   
   <tr>
-  <td> o_tuyere_exit_velo_m_s </td>
+  <td> o_raceway_flame_temp_k </td>
   <td> ${td1.toFixed(2)} </td>
   </tr> 
   
+  <tr>
+  <td> o_raceway_volume_m  </td>
+  <td> ${td2.toFixed(2)} </td>
+  </tr> 
 
   
  </table>   `;
