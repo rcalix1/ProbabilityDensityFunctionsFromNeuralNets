@@ -22,17 +22,17 @@ async function runExample1() {
            
            let session1 = await ort.InferenceSession.create('./xgboost_raceway_coal_burn_perce_ort.onnx');
            let results1 = await session1.run(feeds);
-           let outputData1 = results1.variable.data.toFixed(2);
+           let outputData1 = results1.variable.data;
       
          
            let session2 = await ort.InferenceSession.create('./xgboost_raceway_flame_temp_k_ort.onnx');
            let results2 = await session2.run(feeds);
-           let outputData2 = results2.variable.data.toFixed(2);
+           let outputData2 = results2.variable.data;
       
       
            let session3 = await ort.InferenceSession.create('./xgboost_raceway_volume_m_ort.onnx');
            let results3 = await session3.run(feeds);
-           let outputData3 = results3.variable.data.toFixed(2);
+           let outputData3 = results3.variable.data;
           
 
 
@@ -86,6 +86,7 @@ async function runExample2() {
            let session1 = await ort.InferenceSession.create('./xgboost_raceway_coal_burn_perce_ort.onnx');
            let results1 = await session1.run(feeds);
            let outputData1 = results1.variable.data;
+           outputData1 = parseFloat(outputData1).toFixed(2)
 
  
            let session2 = await ort.InferenceSession.create('./xgboost_raceway_flame_temp_k_ort.onnx');
