@@ -23,12 +23,14 @@ async function runExample1() {
            let session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
            let results1 = await session1.run(feeds);
            let outputData1 = results1.variable.data;
+           outputData1 = parseFloat(outputData1).toFixed(2)
       
           
       
            let session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
            let results2 = await session2.run(feeds);
            let outputData2 = results2.variable.data;
+           outputData2 = parseFloat(outputData2).toFixed(2)
           
 
 
@@ -77,12 +79,13 @@ async function runExample2() {
            let session1 = await ort.InferenceSession.create('./xgboost_tuyere_t_k_ort.onnx');
            let results1 = await session1.run(feeds);
            let outputData1 = results1.variable.data;
-
+           outputData1 = parseFloat(outputData1).toFixed(2)
  
 
            let session2 = await ort.InferenceSession.create('./xgboost_tuyere_exit_velo_m_s_ort.onnx');
            let results2 = await session2.run(feeds);
            let outputData2 = results2.variable.data;
+           outputData2 = parseFloat(outputData2).toFixed(2)
           
  
  
