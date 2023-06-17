@@ -9,6 +9,6 @@
 
 ## Deployed F1 plus F2 NN models
 
-* Tuyere F1 plus F2 NN: 
-* Raceway F1 plus F2 NN:
+* Tuyere F1 plus F2 NN:  https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/F1plusF2NNs/deployment/tuyere/
+* Raceway F1 plus F2 NN: https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/F1plusF2NNs/deployment/raceway/
 
