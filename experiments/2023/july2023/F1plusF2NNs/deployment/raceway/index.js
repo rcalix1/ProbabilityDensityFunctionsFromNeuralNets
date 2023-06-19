@@ -19,15 +19,21 @@ async function runExample1() {
   
    
   let session1 = new onnx.InferenceSession();
-  await session1.loadModel("./F1plusF2NNs_Tuyere_t_k.onnx");
+  await session1.loadModel("./F1plusF2NNs_raceway_coal_burn_perce.onnx");
   let outputMap1 = await session1.run([tensorX]);
   let outputData1 = outputMap1.get('output1');
 
     
   let session2 = new onnx.InferenceSession();
-  await session2.loadModel("./F1plusF2NNs_Tuyere_exit_velo_m_s.onnx");
+  await session2.loadModel("./F1plusF2NNs_raceway_flame_temp_k.onnx");
   let outputMap2 = await session2.run([tensorX]);
   let outputData2 = outputMap2.get('output1');
+
+    
+  let session3 = new onnx.InferenceSession();
+  await session3.loadModel("./F1plusF2NNs_raceway_volume_m.onnx");
+  let outputMap3 = await session3.run([tensorX]);
+  let outputData3 = outputMap3.get('output1');
  
 
   // PREDS DIV 
@@ -38,13 +44,18 @@ async function runExample1() {
  <table>
  
   <tr>
-  <td> o_tuyere_t_k</td>
+  <td> o_raceway_coal_burn_perce</td>
   <td id="c1td0"> ${outputData1.data[0].toFixed(2)} </td>
   </tr>
   
   <tr>
-  <td> o_tuyere_exit_velo_m_s</td>
+  <td> o_raceway_flame_temp_k </td>
   <td id="c1td1"> ${outputData2.data[0].toFixed(2)} </td>
+  </tr> 
+
+  <tr>
+  <td> o_raceway_volume_m </td>
+  <td id="c1td2"> ${outputData3.data[0].toFixed(2)} </td>
   </tr> 
   
 
@@ -75,15 +86,21 @@ async function runExample2() {
   
    
   let session1 = new onnx.InferenceSession();
-  await session1.loadModel("./F1plusF2NNs_Tuyere_t_k.onnx");
+  await session1.loadModel("./F1plusF2NNs_raceway_coal_burn_perce.onnx");
   let outputMap1 = await session1.run([tensorX]);
   let outputData1 = outputMap1.get('output1');
 
 
   let session2 = new onnx.InferenceSession();
-  await session2.loadModel("./F1plusF2NNs_Tuyere_exit_velo_m_s.onnx");
+  await session2.loadModel("./F1plusF2NNs_raceway_flame_temp_k.onnx");
   let outputMap2 = await session2.run([tensorX]);
   let outputData2 = outputMap2.get('output1');
+
+    
+  let session3 = new onnx.InferenceSession();
+  await session3.loadModel("./F1plusF2NNs_raceway_volume_m.onnx");
+  let outputMap3 = await session3.run([tensorX]);
+  let outputData3 = outputMap3.get('output1');
   
  
 
@@ -97,13 +114,18 @@ async function runExample2() {
  <table>
  
   <tr>
-  <td> o_tuyere_t_k</td>
+  <td> o_raceway_coal_burn_perce</td>
   <td id="c2td0"> ${outputData1.data[0].toFixed(2)} </td>
   </tr>
   
   <tr>
-  <td> o_tuyere_exit_velo_m_s </td>
+  <td> o_raceway_flame_temp_k </td>
   <td id="c2td1"> ${outputData2.data[0].toFixed(2)} </td>
+  </tr> 
+
+  <tr>
+  <td> o_raceway_volume_m </td>
+  <td id="c2td2"> ${outputData3.data[0].toFixed(2)} </td>
   </tr> 
   
 
@@ -120,30 +142,36 @@ async function runDiff() {
     
     var c1td0 = parseFloat( document.getElementById('c1td0').innerHTML );
     var c1td1 = parseFloat( document.getElementById('c1td1').innerHTML );
+    var c1td2 = parseFloat( document.getElementById('c1td2').innerHTML );
   
     
     var c2td0 = parseFloat( document.getElementById('c2td0').innerHTML );
     var c2td1 = parseFloat( document.getElementById('c2td1').innerHTML );
+    var c2td2 = parseFloat( document.getElementById('c2td2').innerHTML );
 
     
     td0 = c1td0 - c2td0;
     td1 = c1td1 - c2td1;
+    td2 = c1td2 - c2td2;
   
  
      difference.innerHTML = `<hr> Difference is: <br/> 
  <table>
  
   <tr>
-  <td> o_tuyere_t_k</td>
+  <td> o_raceway_coal_burn_perce </td>
   <td> ${td0.toFixed(2)} </td>
   </tr>
   
   <tr>
-  <td>  o_tuyere_exit_velo_m_s </td>
+  <td>  o_raceway_flame_temp_k </td>
   <td> ${td1.toFixed(2)} </td>
   </tr> 
   
-
+  <tr>
+  <td> o_raceway_volume_m  </td>
+  <td> ${td2.toFixed(2)} </td>
+  </tr> 
  
  </table>   `;
     
