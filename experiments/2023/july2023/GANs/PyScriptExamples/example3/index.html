@@ -36,6 +36,17 @@
                     import matplotlib.pyplot as plt
                     import matplotlib.tri as tri
                     import numpy as np
+                    from pyodide.http import open_url
+
+
+                    url1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_ids_train.csv")
+                    pd_ids_train = pd.read_csv(open_url(url1))
+
+                    url2 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_conditions_train.csv")
+                    pd_conditions_train = pd.read_csv(open_url(url2))
+
+                    url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
+                    pd_imgs_np_train = pd.read_csv(open_url(url3))
 
                     # First create the x and y coordinates of the points.
                     n_angles = 36
