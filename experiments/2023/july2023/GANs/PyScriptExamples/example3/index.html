@@ -79,13 +79,12 @@
   
         <div id="test-output"></div>
 
+        <div id="pandas-output"></div>
 
+        
 
         <section class="pyscript">
             <div id="mpl"></div>
-
-    
-
 
                 
                 <py-config>
@@ -140,6 +139,11 @@
                     url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
                     pd_imgs_np_train = pd.read_csv(open_url(url3))
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
+
+
+                     Element("pandas-output").element.style.display = "block"
+                     display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
+
                     
 
                     ######################################################
