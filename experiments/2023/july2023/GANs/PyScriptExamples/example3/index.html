@@ -50,6 +50,44 @@
                     url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
                     pd_imgs_np_train = pd.read_csv(open_url(url3))
 
+                    ######################################################
+
+                    def euclidean_distance(v1, v2):
+                        return np.sqrt( np.sum(   (v1 - v2)**2   )   )
+
+                    ######################################################
+
+                    def predict(test_x):
+                        ## calculate distances between test_x and all dta samples in x
+                        ## this distances vector is a vector of 45 distances
+                        ## distances = [ euclidean_distance(test_x , x)  for x in X_train    ]
+                        distances = [ euclidean_distance(test_x, x )  for x in conditions_matrix_train   ]
+                        ## distances - > [23, 3, 145, 17, ...]
+                        k = 3
+                        ## sort by distance value and return the k nearest neighbors
+                        ## np.argsort returns the indices of the k neares neighbors
+                        k_neighbor_indices = np.argsort(distances)[:k]
+                        print(k_neighbor_indices)
+                        ## with indices, extract labels from y_train 
+                        img_names = [ list_ids_train[i]  for i in k_neighbor_indices  ]
+                        ## imagine labels = [ 1, 1, 2, 0, 1]
+                        return img_names
+
+                    ################################################
+
+                    def generate_img_per_index(index):
+                        res = predict( conditions_matrix_test[  index  ] ) 
+                        selected_imgs_to_avg = []
+                        for img_name in res:
+                            img_name = img_name
+                            my_img = Image.open(img_name)
+                            selected_imgs_to_avg.append(img_np)
+                            avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
+                            gen_pil_image  = Image.fromarray(avg_gen_img).convert('L')
+                            return gen_pil_image
+
+                    ##################################################
+
                     # First create the x and y coordinates of the points.
                     n_angles = 36
                     n_radii = 8
