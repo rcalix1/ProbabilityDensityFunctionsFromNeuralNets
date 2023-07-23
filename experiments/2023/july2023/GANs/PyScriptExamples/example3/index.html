@@ -43,12 +43,16 @@
 
                     url1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_ids_train.csv")
                     pd_ids_train = pd.read_csv(open_url(url1))
+                    pd_ids_train_np = pd_ids_train.to_numpy()
 
                     url2 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_conditions_train.csv")
                     pd_conditions_train = pd.read_csv(open_url(url2))
+                    pd_conditions_train_np = pd_conditions_train.to_numpy()
 
                     url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
                     pd_imgs_np_train = pd.read_csv(open_url(url3))
+                    pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
+                    
 
                     ######################################################
 
@@ -58,19 +62,11 @@
                     ######################################################
 
                     def predict(test_x):
-                        ## calculate distances between test_x and all dta samples in x
-                        ## this distances vector is a vector of 45 distances
-                        ## distances = [ euclidean_distance(test_x , x)  for x in X_train    ]
                         distances = [ euclidean_distance(test_x, x )  for x in conditions_matrix_train   ]
-                        ## distances - > [23, 3, 145, 17, ...]
                         k = 3
-                        ## sort by distance value and return the k nearest neighbors
-                        ## np.argsort returns the indices of the k neares neighbors
                         k_neighbor_indices = np.argsort(distances)[:k]
                         print(k_neighbor_indices)
-                        ## with indices, extract labels from y_train 
                         img_names = [ list_ids_train[i]  for i in k_neighbor_indices  ]
-                        ## imagine labels = [ 1, 1, 2, 0, 1]
                         return img_names
 
                     ################################################
