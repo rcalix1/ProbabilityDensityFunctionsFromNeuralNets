@@ -12,6 +12,12 @@
         />
         <link rel="stylesheet" href="./assets/css/examples.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <script>
+
+                await pyodide.loadPackage("pillow");
+
+            
+        </script>
     </head>
 
     <body>
@@ -58,6 +64,7 @@
 
                     asyncio.ensure_future(plot_image(url))
 
+                 
                     
                 </py-script>
             </section>
