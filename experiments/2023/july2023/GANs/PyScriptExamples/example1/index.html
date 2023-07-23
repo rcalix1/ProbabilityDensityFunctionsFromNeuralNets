@@ -38,6 +38,27 @@
                     from datetime import datetime
                     now = datetime.now()
                     display(now.strftime("%m/%d/%Y, %H:%M:%S"))
+
+                    import asyncio
+                    from pyodide.http import pyfetch
+                    from PIL import Image
+                    import matplotlib.pyplot as plt
+                    import io
+
+                    url = "https://www.rcalix.com/images/ann.jpg"
+                    async def plot_image(url):
+                        img = await pyfetch(url)
+                        res = await img.bytes()
+                        iobuf = io.BytesIO(res)
+                        image = Image.open(iobuf)
+                        fig, ax = plt.subplots(figsize=(15, 15))
+                        ax.imshow(image)
+
+                        display(fig, target="graph-area", append=False)
+
+                    asyncio.ensure_future(plot_image(url))
+
+                    
                 </py-script>
             </section>
         </py-tutor>
