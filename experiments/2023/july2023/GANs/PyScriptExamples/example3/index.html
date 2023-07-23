@@ -182,10 +182,14 @@
 
                     ##################################################
 
+
                     def my_gen_function():
-                        text = str(pd_conditions_train_np.shape)
+                        text1 = str(pd_conditions_train_np.shape)
+                        text2 = str(pd_ids_train_np.shape)
+                        text3 = str(pd_imgs_np_train_np.shape)
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
+                        text = text1 + text2 + text3
                         Element('test-output').element.innerText =  text
 
 
