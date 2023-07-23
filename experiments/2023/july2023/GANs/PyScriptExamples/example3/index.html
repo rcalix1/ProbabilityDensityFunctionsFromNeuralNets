@@ -72,7 +72,7 @@
  </table> 
 
        
-         <button id="get-time" py-click="my_gen_function()"  class="py-button">Call Function</button>
+         <button id="get-time" py-click="my_gen_function3()"  class="py-button">Call Function</button>
                                        
        
         <p id="current-val"></p>
@@ -110,10 +110,14 @@
                     from pyodide.http import open_url
                     from js import console
 
-                     ###########################################
+                    ##################################################
 
+                    def my_gen_function3():
+                        text = Element('testInput1').element.value
+                        Element('test-output').element.innerText = text
                    
-
+                    ###########################################
+                    
                     def my_gen_function5(*args, **kwargs):
                         #print('args:', args)
                         #print('kwargs:', kwargs)
@@ -141,8 +145,8 @@
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
 
 
-                     Element("pandas-output").element.style.display = "block"
-                     display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
+                    Element("pandas-output").element.style.display = "block"
+                    display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
 
                     
 
@@ -174,15 +178,11 @@
                             gen_pil_image  = Image.fromarray(avg_gen_img).convert('L')
                             return gen_pil_image
 
-                    ##################################################
-
-                     def my_gen_function3():
-                        text = Element('testInput1').element.value
-                        Element('test-output').element.innerText = text
+                    
 
                     ##################################################
 
-                     def my_gen_function():
+                    def my_gen_function():
                         ## text = str(pd_conditions_train_np.shape)
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
