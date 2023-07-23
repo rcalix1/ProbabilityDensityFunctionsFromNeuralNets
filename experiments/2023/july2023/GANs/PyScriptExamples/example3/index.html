@@ -1,6 +1,9 @@
 <html>
+
+
+    
     <head>
-        <title>Matplotlib</title>
+        <title>Generate Furnace Heat Images per Conditions</title>
         <meta charset="utf-8" />
         <link rel="icon" type="image/x-icon" href="./favicon.png" />
         <link
@@ -10,29 +13,37 @@
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <link rel="stylesheet" href="./assets/css/examples.css" />
     </head>
+
+
+
+    
     <body>
+
+        
         <nav class="navbar" style="background-color: #000000">
             <div class="app-header">
                 <a href="/">
                     <img src="./logo.png" class="logo" />
                 </a>
-                <a class="title" href="" style="color: #f0ab3c">Matplotlib</a>
+                <a class="title" href="" style="color: #f0ab3c">KNN avg Generator</a>
             </div>
         </nav>
 
       
         <div>Type conditions here</div>
             <input type="text" style="border:3px solid #F7730E;" id="testInput1"/>
-            <input type="text" id="testInput2"/>
-            <input type="text" id="testInput3"/>
-            <input type="text" id="testInput4"/>
-            <input type="text" id="testInput5"/>
-            <input type="text" id="testInput6"/>
-            <input type="text" id="testInput7"/>
-            <input type="text" id="testInput8"/>
-            <input type="text" id="testInput9"/>
-            <input type="text" id="testInput10"/>
-            <button id="submit-button" type="submit" pys-onClick="my_gen_function">Generate</button>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput2"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput3"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput4"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput5"/> </br>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput6"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput7"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput8"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput9"/>
+            <input type="text" style="border:3px solid #F7730E;" id="testInput10"/> </br>
+            <button id="submit-button" type="submit" pys-onClick="my_gen_function2()">Generate</button>
+
+        
         <div id="test-output"></div>
 
 
@@ -41,6 +52,9 @@
             <div id="mpl"></div>
 
             <py-tutor>
+
+
+                
                 <py-config>
                     packages = [
                       "matplotlib",
@@ -51,13 +65,24 @@
                     ]
                 </py-config>
 
+
+                
+
                 <script type="py">
+
+                    
                     import matplotlib.pyplot as plt
                     import matplotlib.tri as tri
                     import numpy as np
                     import pandas as pd
                     from pyodide.http import open_url
                     from js import console
+
+                    ###########################################
+
+                    def my_gen_function2():
+                        text = Element('testInput1').element.value
+                        Element('test-output').element.innerText = text
 
                     ###########################################
 
@@ -147,9 +172,15 @@
                     ax1.set_title('tripcolor of Delaunay triangulation, flat shading')
 
                     display(fig1, target="mpl")
+
+
+                    
                 </script>
             </py-tutor>
         </section>
+
+
+        
     </body>
 </html>
 
