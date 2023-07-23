@@ -83,8 +83,7 @@
             <input type="text" style="border:3px solid #F7730E;" id="testInput8"/>
             <input type="text" style="border:3px solid #F7730E;" id="testInput9"/>
             <input type="text" style="border:3px solid #F7730E;" id="testInput10"/> </br>
-            <button id="submit-button" type="submit" pys-onClick="my_gen_function2()">Generate</button>
-
+       
             <button id="get-time" py-click="my_gen_function3()"  class="py-button">Call Function</button>
        
         <p id="current-val"></p>
@@ -123,17 +122,11 @@
                     from pyodide.http import open_url
                     from js import console
 
-                    ###########################################
-
-                    def my_gen_function2():
-                        text = Element('testInput1').element.value
-                        Element('test-output').element.innerText = "calix" ## text
-
                      ###########################################
 
                     def my_gen_function3():
                         text = Element('testInput1').element.value
-                        Element('test-output').element.innerText = "calix" ## text
+                        Element('test-output').element.innerText = text
 
                     ###########################################
 
