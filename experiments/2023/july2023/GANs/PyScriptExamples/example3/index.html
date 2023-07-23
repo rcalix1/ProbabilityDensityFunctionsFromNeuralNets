@@ -72,7 +72,7 @@
  </table> 
 
        
-         <button id="get-time" py-click="my_gen_function3()"  class="py-button">Call Function</button>
+         <button id="get-time" py-click="my_gen_function()"  class="py-button">Call Function</button>
                                        
        
         <p id="current-val"></p>
@@ -145,8 +145,8 @@
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
 
 
-                    Element("pandas-output").element.style.display = "block"
-                    display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
+                    ## Element("pandas-output").element.style.display = "block"
+                    ## display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
 
                     
 
@@ -183,10 +183,10 @@
                     ##################################################
 
                     def my_gen_function():
-                        ## text = str(pd_conditions_train_np.shape)
+                        text = str(pd_conditions_train_np.shape)
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
-                        Element('test-output').element.innerText = "ufo"
+                        Element('test-output').element.innerText =  text
 
 
                     ###########################################
