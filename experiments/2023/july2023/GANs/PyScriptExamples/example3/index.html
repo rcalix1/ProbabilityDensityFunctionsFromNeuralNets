@@ -19,6 +19,23 @@
                 <a class="title" href="" style="color: #f0ab3c">Matplotlib</a>
             </div>
         </nav>
+       
+        <div>Type conditions here</div>
+            <input type="text" id="testInput1"/>
+            <input type="text" id="testInput2"/>
+            <input type="text" id="testInput3"/>
+            <input type="text" id="testInput4"/>
+            <input type="text" id="testInput5"/>
+            <input type="text" id="testInput6"/>
+            <input type="text" id="testInput7"/>
+            <input type="text" id="testInput8"/>
+            <input type="text" id="testInput9"/>
+            <input type="text" id="testInput10"/>
+            <button id="submit-button" type="submit" pys-onClick="my_gen_function">Generate</button>
+        <div id="test-output"></div>
+
+
+
         <section class="pyscript">
             <div id="mpl"></div>
 
@@ -39,6 +56,22 @@
                     import numpy as np
                     import pandas as pd
                     from pyodide.http import open_url
+                    from js import console
+
+                    ###########################################
+
+                    def my_gen_function(*args, **kwargs):
+                        #print('args:', args)
+                        #print('kwargs:', kwargs)
+                        console.log(f'args: {args}')
+                        console.log(f'kwargs: {kwargs}')
+                        text = Element('test-input1').element.value
+                        #print('text:', text)
+                        console.log(f'text: {text}')
+                        #Element('test-output').element.innerText = text
+                        pyscript.write('test-output', text)
+
+                    ###########################################
 
 
                     url1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_ids_train.csv")
