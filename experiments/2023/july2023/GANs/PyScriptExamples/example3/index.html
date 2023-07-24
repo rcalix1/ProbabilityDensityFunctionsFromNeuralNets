@@ -191,17 +191,17 @@
                     ##################################################
 
                     def my_gen_function():
-                        test_x = get_np_conditions_vector()
+                        ### test_x = get_np_conditions_vector()
                         text1 = str(pd_conditions_train_np.shape)
                         text2 = str(pd_ids_train_np.shape)
                         text3 = str(pd_imgs_np_train_np.shape)
-                        text4 = str(test_x.shape)
+                        ### text4 = str(test_x.shape)
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
-                        text = text1 + text2 + text3 + text4
+                        text = text1 + text2 + text3 ### + text4
                         Element('test-output').element.innerText =  text
                         ### generated_img = predict( test_x )
-                        fig1, ax = plt.subplots(1,1)
+                        ### fig1, ax = plt.subplots(1,1)
                         ### ax[0].imshow(generated_img)
                         ### ax[1].imshow(generated_img)
                         ### display(fig1, target="mpl")
