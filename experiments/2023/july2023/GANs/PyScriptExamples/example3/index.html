@@ -155,8 +155,8 @@
 
                     epsilon = 0.0001
 
-                    x_means      =  pd_conditions_train_np.mean(0, keepdim=True)
-                    x_deviations =  pd_conditions_train_np.std( 0, keepdim=True) + epsilon
+                    x_means      =  pd_conditions_train_np.mean(0)
+                    x_deviations =  pd_conditions_train_np.std( 0) + epsilon
 
                     pd_conditions_train_np  = (pd_conditions_train_np - x_means) / x_deviations
 
