@@ -148,7 +148,9 @@
                     ## Element("pandas-output").element.style.display = "block"
                     ## display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
 
-                    
+                    pd_ids_train_np          = pd_ids_train_np[:. 1:]
+                    pd_conditions_train_np   = pd_conditions_train_np[:, 1:]
+                    pd_imgs_np_train_np      = pd_imgs_np_train_np[:, 1:]
 
                     ######################################################
 
@@ -162,7 +164,7 @@
                         k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
                         print(k_neighbor_indices)
-                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i]  for i in k_neighbor_indices  ]
+                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
                         return gen_pil_image
 
@@ -201,6 +203,12 @@
 
                         generated_img = predict( test_x )
 
+                        fig, ax = plt.subplots(1,2)
+                        ax[0].imshow(generated_img)
+                        ax[1].imshow(generated_img)
+
+                        display(fig1, target="mpl")
+
 
                     ###########################################
 
@@ -226,13 +234,13 @@
                                              y[triang.triangles].mean(axis=1))
                                     < min_radius)
 
-                    fig1, ax1 = plt.subplots()
-                    ax1.set_aspect('equal')
-                    tpc = ax1.tripcolor(triang, z, shading='flat')
-                    fig1.colorbar(tpc)
-                    ax1.set_title('tripcolor of Delaunay triangulation, flat shading')
+                    ## fig1, ax1 = plt.subplots()
+                    ## ax1.set_aspect('equal')
+                    ## tpc = ax1.tripcolor(triang, z, shading='flat')
+                    ## fig1.colorbar(tpc)
+                    ## ax1.set_title('tripcolor of Delaunay triangulation, flat shading')
 
-                    display(fig1, target="mpl")
+                    ## display(fig1, target="mpl")
 
 
                     
