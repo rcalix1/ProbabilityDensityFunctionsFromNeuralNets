@@ -225,6 +225,7 @@
                         ## ax1.set_aspect('equal')
                         ## tpc = ax1.tripcolor(triang, z, shading='flat')
                         ## fig1.colorbar(tpc)
+                        test_x = test_x * x_deviations + x_means
                         test_x = test_x.astype(int)
                         str_conditions = np.array2string(test_x, precision=0, separator=',', suppress_small=True)
                         str_conditions = str_conditions.replace(" ","")
