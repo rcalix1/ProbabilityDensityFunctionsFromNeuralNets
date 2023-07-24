@@ -83,7 +83,7 @@
 
         
 
-        <section class="pyscript">
+        <section class="pyscript"> 
             <div id="mpl"></div>
 
                 
@@ -214,7 +214,9 @@
                         ## ax1.set_aspect('equal')
                         ## tpc = ax1.tripcolor(triang, z, shading='flat')
                         ## fig1.colorbar(tpc)
-                        ax1.set_title('Generated Image')
+                        str_conditions = np.array2string(test_x, precision=2, separator=',', suppress_small=True)
+                        ## ax1.set_title('Generated Image')
+                        ax1.set_title(str_conditions)
                         Element('mpl').element.innerText = ""
                         display(fig1, target="mpl")
                    
