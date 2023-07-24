@@ -165,7 +165,7 @@
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
-                        return gen_pil_image
+                        return avg_gen_img
 
                     ##################################################
 
@@ -200,7 +200,7 @@
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
                         text = text1 + text2 + text3 + text4
-                        Element('test-output').element.innerText =  text   ## works til here
+                        Element('test-output').element.innerText =  text   
                         generated_img = predict( test_x )
                         fig1, ax = plt.subplots(1,1)
                         ax[0].imshow(generated_img)
