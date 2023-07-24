@@ -198,12 +198,12 @@
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
                         text = text1 + text2 + text3 + text4
-                        Element('test-output').element.innerText =  text
+                        Element('test-output').element.innerText =  text   ## works til here
                         generated_img = predict( test_x )
-                        ### fig1, ax = plt.subplots(1,1)
-                        ### ax[0].imshow(generated_img)
-                        ### ax[1].imshow(generated_img)
-                        ### display(fig1, target="mpl")
+                        fig1, ax = plt.subplots(1,1)
+                        ax[0].imshow(generated_img)
+                        ## ax[1].imshow(generated_img)
+                        display(fig1, target="mpl")
 
 
                     ###########################################
