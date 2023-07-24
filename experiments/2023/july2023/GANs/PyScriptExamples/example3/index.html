@@ -214,7 +214,8 @@
                         ## ax1.set_aspect('equal')
                         ## tpc = ax1.tripcolor(triang, z, shading='flat')
                         ## fig1.colorbar(tpc)
-                        str_conditions = np.array2string(test_x, precision=2, separator=',', suppress_small=True)
+                        str_conditions = np.array2string(test_x, precision=0, separator=',', suppress_small=True)
+                        str_conditions = str_conditions.replace(" ","")
                         ## ax1.set_title('Generated Image')
                         ax1.set_title(str_conditions)
                         ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
