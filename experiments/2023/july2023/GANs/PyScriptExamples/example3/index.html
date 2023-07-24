@@ -202,9 +202,10 @@
                         text = text1 + text2 + text3 + text4
                         Element('test-output').element.innerText =  text   
                         generated_img = predict( test_x )
-                        fig1, ax = plt.subplots(1,1)
-                        ax[0].imshow(generated_img)
+                        ### fig1, ax = plt.subplots(1,1)
+                        ### ax[0].imshow(generated_img)
                         ## ax[1].imshow(generated_img)
+                        fig1 = plt.imshow(generated_img)
                         display(fig1, target="mpl")
 
 
