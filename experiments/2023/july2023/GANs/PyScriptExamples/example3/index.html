@@ -205,8 +205,17 @@
                         ### fig1, ax = plt.subplots(1,1)
                         ### ax[0].imshow(generated_img)
                         ## ax[1].imshow(generated_img)
-                        fig1 = plt.imshow(generated_img)
+                        ### fig1 = plt.imshow(generated_img)
+                        
+
+                        fig1, ax1 = plt.subplots()
+                        plt.imshow(generated_img)
+                        ## ax1.set_aspect('equal')
+                        ## tpc = ax1.tripcolor(triang, z, shading='flat')
+                        ## fig1.colorbar(tpc)
+                        ax1.set_title('Generated Image')
                         display(fig1, target="mpl")
+                   
 
 
                     ###########################################
