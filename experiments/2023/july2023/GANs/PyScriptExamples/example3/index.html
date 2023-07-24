@@ -217,7 +217,7 @@
                         str_conditions = np.array2string(test_x, precision=2, separator=',', suppress_small=True)
                         ## ax1.set_title('Generated Image')
                         ax1.set_title(str_conditions)
-                        Element('mpl').element.innerText = ""
+                        ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
                         display(fig1, target="mpl")
                    
 
