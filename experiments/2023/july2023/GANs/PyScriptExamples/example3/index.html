@@ -147,9 +147,9 @@
                     ## Element("pandas-output").element.style.display = "block"
                     ## display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
 
-                    pd_ids_train_np          = pd_ids_train_np[:, 1:]
-                    pd_conditions_train_np   = pd_conditions_train_np[:, 1:]
-                    pd_imgs_np_train_np      = pd_imgs_np_train_np[:, 1:]
+                    pd_ids_train_np          = pd_ids_train_np[1:, 1:]
+                    pd_conditions_train_np   = pd_conditions_train_np[1:, 1:]
+                    pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
 
                     ######################################################
 
