@@ -175,7 +175,8 @@
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
-                        ## str_avg_gen_img =
+                        str_avg_gen_img = np.array2string(avg_gen_img, precision=0, separator=',', suppress_small=True)
+                        Element('pandas-output').element.innerText =  str_avg_gen_img 
                         ## avg_gen_img = avg_gen_img.astype(int)
                         return avg_gen_img
 
