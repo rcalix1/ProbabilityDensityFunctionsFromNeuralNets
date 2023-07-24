@@ -153,6 +153,15 @@
 
                     ######################################################
 
+                    epsilon = 0.0001
+
+                    x_means      =  pd_conditions_train_np.mean(0, keepdim=True)
+                    x_deviations =  pd_conditions_train_np.std( 0, keepdim=True) + epsilon
+
+                    pd_conditions_train_np  = (pd_conditions_train_np - x_means) / x_deviations
+
+                    ######################################################
+
                     def euclidean_distance(v1, v2):
                         return np.sqrt( np.sum(   (v1 - v2)**2   )   )
 
@@ -187,6 +196,8 @@
                         np_conditions_list = np.array(conditions_list)
 
                         np_conditions_list = np.expand_dims(np_conditions_list, axis=0)
+
+                        np_conditions_list  = (np_conditions_list - x_means) / x_deviations
                        
                         return np_conditions_list
 
