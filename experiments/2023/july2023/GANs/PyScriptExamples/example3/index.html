@@ -173,7 +173,7 @@
 
                     def predict(test_x):
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 1
+                        k = 2
                         k_neighbor_indices = np.argsort(distances)[:k]
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
@@ -181,13 +181,16 @@
 
                         #################################################################
                         ## for weighted avg
-                        ## distances_scaled =  [ (1 - dist/ np.sort(distances)[:k][-1] )   for dist in np.sort(distances)[:k] ]  
-                        ## list_weights = [weight for weight in  distances_scaled]
-                        ## avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(list_weights))
+                        denominator = sum( np.sort(distances)[:k])
+                        weigths_dist =  [ (1 - dist/denominator)   for dist in np.sort(distances)[:k] ]  
+                        avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(weigths_dist))
                         #################################################################
                         
                         ## str_avg_gen_img = np.array2string(avg_gen_img, precision=0, separator=',', suppress_small=True)
                         ## Element('pandas-output').element.innerText =  str_avg_gen_img 
+
+                        #################################################################
+                    
                         avg_gen_img = avg_gen_img.astype(int)
                         return avg_gen_img
 
