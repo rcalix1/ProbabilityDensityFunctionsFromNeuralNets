@@ -266,12 +266,13 @@
                         k_neighbor_indices = np.argsort(distances)[:k]
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((700, 195))  for i in k_neighbor_indices  ]
-                        ## avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
-                    
-                        distances_scaled =  [ (1 - dist/ np.sort(distances)[:k][-1] )   for dist in np.sort(distances)[:k] ]  
-                        list_weights = [weight for weight in  distances_scaled]
-                    
-                        avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(list_weights))
+                        avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
+
+                        #################################################################
+                        ## distances_scaled =  [ (1 - dist/ np.sort(distances)[:k][-1] )   for dist in np.sort(distances)[:k] ]  
+                        ## list_weights = [weight for weight in  distances_scaled]
+                        ## avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(list_weights))
+                        #################################################################
                         
                         ## str_avg_gen_img = np.array2string(avg_gen_img, precision=0, separator=',', suppress_small=True)
                         ## Element('pandas-output').element.innerText =  str_avg_gen_img 
