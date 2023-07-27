@@ -170,14 +170,13 @@
 
                     def predict(test_x):
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 2
+                        k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
                         ## avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
                     
-                        sum_distances = sum(  np.sort(distances)[:k]  )
-                        distances_scaled =  np.sort(distances)[:k] / sum_distances 
+                        distances_scaled =  [ (1 - dist/ np.sort(distances)[:k][-1] )   for dist in np.sort(distances)[:k] ]  
                         list_weights = [weight for weight in  distances_scaled]
                     
                         avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(list_weights))
