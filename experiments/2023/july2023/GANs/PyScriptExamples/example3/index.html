@@ -269,6 +269,7 @@
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
 
                         #################################################################
+                        ## for weighted avg
                         ## distances_scaled =  [ (1 - dist/ np.sort(distances)[:k][-1] )   for dist in np.sort(distances)[:k] ]  
                         ## list_weights = [weight for weight in  distances_scaled]
                         ## avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(list_weights))
