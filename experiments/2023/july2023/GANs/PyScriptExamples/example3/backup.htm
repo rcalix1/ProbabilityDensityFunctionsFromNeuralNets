@@ -1,0 +1,266 @@
+<html>
+
+
+    
+    <head>
+        <title>Generate Furnace Heat Images per Conditions</title>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/x-icon" href="./favicon.png" />
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <link rel="stylesheet" href="./assets/css/examples.css" />
+    </head>
+
+
+
+    
+    <body>
+
+        
+        <nav class="navbar" style="background-color: #000000">
+            <div class="app-header">
+                <a href="">
+                    <img src="./logo.png" class="logo" />
+                </a>
+                <a class="title" href="" style="color: #f0ab3c">KNN avg Generator</a>
+            </div>
+        </nav>
+
+      
+        <div>Type conditions here: </div>
+   
+ <table>
+ 
+  <tr>
+     <td> Ng </td>
+     <td> <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput1"/> </td>
+
+       <td> Pci </td>
+     <td>   <input type="text" style="border:3px solid #F7730E;" value="175" id="testInput2"/> </td>
+
+       <td> H </td>
+     <td>  <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput3"/> </td>
+
+       <td> Wp </td>
+     <td>   <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput4"/> </td>
+
+       <td> Ph</td>
+     <td>       <input type="text" style="border:3px solid #F7730E;" value="300" id="testInput5"/>  </td>
+  </tr>
+        
+       
+  <tr>
+     <td> Ox </td>
+     <td>  <input type="text" style="border:3px solid #F7730E;" value="24" id="testInput6"/> </td>
+
+     <td>Ow</td>
+     <td>    <input type="text" style="border:3px solid #F7730E;" value="7" id="testInput7"/> </td>
+
+     <td> Hbt</td>
+     <td>     <input type="text" style="border:3px solid #F7730E;" value="1459" id="testInput8"/> </td>
+
+     <td> Wm</td>
+     <td>  <input type="text" style="border:3px solid #F7730E;" value="12" id="testInput9"/> </td>
+
+    <td> Wr</td>
+     <td>     <input type="text" style="border:3px solid #F7730E;" value="308750" id="testInput10"/>  </td>
+  </tr> 
+ 
+ </table> 
+
+       
+         <button id="get-time" py-click="my_gen_function()"  class="py-button">Call Function</button>
+                                       
+       
+        <p id="current-val"></p>
+  
+        <div id="test-output"></div>
+
+        <div id="pandas-output"></div>
+
+        
+
+        <section class="pyscript"> 
+            <div id="mpl"></div>
+
+                
+                <py-config>
+                    packages = [
+                      "matplotlib",
+                      "pandas",
+                    ]
+                    plugins = [
+                      "https://pyscript.net/latest/plugins/python/py_tutor.py"
+                    ]
+                </py-config>
+
+
+                
+
+                <script type="py">
+
+                    
+                    import matplotlib.pyplot as plt
+                    import matplotlib.tri as tri
+                    import numpy as np
+                    import pandas as pd
+                    from pyodide.http import open_url
+                    from js import console
+                    from mpl_toolkits.axes_grid1 import make_axes_locatable
+
+                    ##################################################
+
+                    def my_gen_function3():
+                        text = Element('testInput1').element.value
+                        Element('test-output').element.innerText = text
+                   
+                    ###########################################
+                    
+                    def my_gen_function5(*args, **kwargs):
+                        #print('args:', args)
+                        #print('kwargs:', kwargs)
+                        console.log(f'args: {args}')
+                        console.log(f'kwargs: {kwargs}')
+                        text = Element('testInput1').element.value
+                        #print('text:', text)
+                        console.log(f'text: {text}')
+                        #Element('test-output').element.innerText = text
+                        pyscript.write('test-output', text)
+
+                    ###########################################
+
+
+                    url1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_ids_train.csv")
+                    pd_ids_train = pd.read_csv(open_url(url1))
+                    pd_ids_train_np = pd_ids_train.to_numpy()
+                    pd_ids_train_np          = pd_ids_train_np[1:, 1:]
+
+                    url2 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_conditions_train.csv")
+                    pd_conditions_train = pd.read_csv(open_url(url2))
+                    pd_conditions_train_np = pd_conditions_train.to_numpy()
+                    pd_conditions_train_np   = pd_conditions_train_np[1:, 1:]
+
+                    #########################################################################################################
+
+                    url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
+                    pd_imgs_np_train = pd.read_csv(open_url(url3))
+                    pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
+                    pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
+
+                    ##############################################################################
+
+                    ## Element("pandas-output").element.style.display = "block"
+                    ## display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
+
+                    ######################################################
+
+                    ## epsilon = 0.0001
+                    ## x_means      =  pd_conditions_train_np.mean(0)
+                    ## x_deviations =  pd_conditions_train_np.std( 0) + epsilon
+                    ## pd_conditions_train_np  = (pd_conditions_train_np - x_means) / x_deviations
+
+                    ######################################################
+
+                    def euclidean_distance(v1, v2):
+                        return np.sqrt( np.sum(   (v1 - v2)**2   )   )
+
+                    ######################################################
+
+                    def predict(test_x):
+                        distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
+                        k = 3
+                        k_neighbor_indices = np.argsort(distances)[:k]
+                        ### print(k_neighbor_indices)
+                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
+                        avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
+
+                        #################################################################
+                        ## for weighted avg
+                        ## denominator = sum( np.sort(distances)[:k])
+                        ## weigths_dist =  [ (1 - dist/denominator)   for dist in np.sort(distances)[:k] ]  
+                        ## avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(weigths_dist))
+                        #################################################################
+                        
+                        ## str_avg_gen_img = np.array2string(avg_gen_img, precision=0, separator=',', suppress_small=True)
+                        ## Element('pandas-output').element.innerText =  str_avg_gen_img 
+
+                        #################################################################
+                    
+                        avg_gen_img = avg_gen_img.astype(int)
+                        return avg_gen_img
+
+                    ##################################################
+
+                    def get_np_conditions_vector():
+                        c1 = float( Element('testInput1').element.value )
+                        c2 = float( Element('testInput2').element.value )
+                        c3 = float( Element('testInput3').element.value )
+                        c4 = float( Element('testInput4').element.value )
+                        c5 = float( Element('testInput5').element.value )
+                        c6 = float( Element('testInput6').element.value )
+                        c7 = float( Element('testInput7').element.value )
+                        c8 = float( Element('testInput8').element.value )
+                        c9 = float( Element('testInput9').element.value )
+                        c10 = float( Element('testInput10').element.value )
+
+                        conditions_list = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
+
+                        np_conditions_list = np.array(conditions_list)
+
+                        np_conditions_list = np.expand_dims(np_conditions_list, axis=0)
+
+                        ## np_conditions_list  = (np_conditions_list - x_means) / x_deviations
+                       
+                        return np_conditions_list
+
+                    ##################################################
+
+                    def my_gen_function():
+                        test_x = get_np_conditions_vector()
+                    
+                        text1 = str(pd_conditions_train_np.shape)
+                        text2 = str(pd_ids_train_np.shape)
+                        text3 = str(pd_imgs_np_train_np.shape)
+                        text4 = str(test_x.shape)
+                        ## console.log(f'text: {text}')
+                        ## text = Element('testInput1').element.value
+                    
+                        text = text1 + text2 + text3 + text4
+                        Element('test-output').element.innerText =  text   
+                    
+                        generated_img = predict( test_x )
+                    
+                                  
+                        fig1, ax1 = plt.subplots()
+                        plt.imshow(generated_img, cmap='summer')
+
+                        plt.colorbar(label="Colorbar", orientation="vertical")
+                    
+                        ## test_x = test_x * x_deviations + x_means
+                    
+                        test_x = test_x.astype(int)
+                        str_conditions = np.array2string(test_x, precision=0, separator=',', suppress_small=True)
+                        str_conditions = str_conditions.replace(" ","")
+                        str_conditions = str_conditions.replace("[","")
+                        str_conditions = str_conditions.replace("]","")
+           
+                        ax1.set_title(str_conditions)
+                        ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
+                        display(fig1, target="mpl")
+                   
+
+
+          
+                    
+                </script>
+         
+        </section>
+
+
+        
+    </body>
+</html>
+
