@@ -150,99 +150,10 @@
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
                     pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
 
-                    #########################################################################################################
-
-                    def func_read_multiple_csv_imgs():
-                        p1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_1.csv")
-                        pd_imgs_np_train_1 = pd.read_csv(open_url(p1))
-                        pd_imgs_np_train_np_1 = pd_imgs_np_train_1.to_numpy()
-                        pd_imgs_np_train_np_1 = pd_imgs_np_train_np_1[1:, 1:]
-                        p2 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_2.csv")
-                        pd_imgs_np_train_2 = pd.read_csv(open_url(p2))
-                        pd_imgs_np_train_np_2 = pd_imgs_np_train_2.to_numpy()
-                        pd_imgs_np_train_np_2 = pd_imgs_np_train_np_2[1:, 1:]
-                        p3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_3.csv")
-                        pd_imgs_np_train_3 = pd.read_csv(open_url(p3))
-                        pd_imgs_np_train_np_3 = pd_imgs_np_train_3.to_numpy()
-                        pd_imgs_np_train_np_3 = pd_imgs_np_train_np_3[1:, 1:]
-                        p4 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_4.csv")
-                        pd_imgs_np_train_4 = pd.read_csv(open_url(p4))
-                        pd_imgs_np_train_np_4 = pd_imgs_np_train_4.to_numpy()
-                        pd_imgs_np_train_np_4 = pd_imgs_np_train_np_4[1:, 1:]
-                        p5 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_5.csv")
-                        pd_imgs_np_train_5 = pd.read_csv(open_url(p5))
-                        pd_imgs_np_train_np_5 = pd_imgs_np_train_5.to_numpy()
-                        pd_imgs_np_train_np_5 = pd_imgs_np_train_np_5[1:, 1:]
-                        p6 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_6.csv")
-                        pd_imgs_np_train_6 = pd.read_csv(open_url(p6))
-                        pd_imgs_np_train_np_6 = pd_imgs_np_train_6.to_numpy()
-                        pd_imgs_np_train_np_6 = pd_imgs_np_train_np_6[1:, 1:]
-                        p7 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_7.csv")
-                        pd_imgs_np_train_7 = pd.read_csv(open_url(p7))
-                        pd_imgs_np_train_np_7 = pd_imgs_np_train_7.to_numpy()
-                        pd_imgs_np_train_np_7 = pd_imgs_np_train_np_7[1:, 1:]
-                        p8 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_8.csv")
-                        pd_imgs_np_train_8 = pd.read_csv(open_url(p8))
-                        pd_imgs_np_train_np_8 = pd_imgs_np_train_8.to_numpy()
-                        pd_imgs_np_train_np_8 = pd_imgs_np_train_np_8[1:, 1:]
-                        p9 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_9.csv")
-                        pd_imgs_np_train_9 = pd.read_csv(open_url(p9))
-                        pd_imgs_np_train_np_9 = pd_imgs_np_train_9.to_numpy()
-                        pd_imgs_np_train_np_9 = pd_imgs_np_train_np_9[1:, 1:]
-                        p10 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_10.csv")
-                        pd_imgs_np_train_10 = pd.read_csv(open_url(p10))
-                        pd_imgs_np_train_np_10 = pd_imgs_np_train_10.to_numpy()
-                        pd_imgs_np_train_np_10 = pd_imgs_np_train_np_10[1:, 1:]
-                        p11 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_11.csv")
-                        pd_imgs_np_train_11 = pd.read_csv(open_url(p11))
-                        pd_imgs_np_train_np_11 = pd_imgs_np_train_11.to_numpy()
-                        pd_imgs_np_train_np_11 = pd_imgs_np_train_np_11[1:, 1:]
-                        p12 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_12.csv")
-                        pd_imgs_np_train_12 = pd.read_csv(open_url(p12))
-                        pd_imgs_np_train_np_12 = pd_imgs_np_train_12.to_numpy()
-                        pd_imgs_np_train_np_12 = pd_imgs_np_train_np_12[1:, 1:]
-                        p13 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_13.csv")
-                        pd_imgs_np_train_13 = pd.read_csv(open_url(p13))
-                        pd_imgs_np_train_np_13 = pd_imgs_np_train_13.to_numpy()
-                        pd_imgs_np_train_np_13 = pd_imgs_np_train_np_13[1:, 1:]
-                        p14 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_14.csv")
-                        pd_imgs_np_train_14 = pd.read_csv(open_url(p14))
-                        pd_imgs_np_train_np_14 = pd_imgs_np_train_14.to_numpy()
-                        pd_imgs_np_train_np_14 = pd_imgs_np_train_np_14[1:, 1:]
-                        p15 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/Imgs_Furnace_15.csv")
-                        pd_imgs_np_train_15 = pd.read_csv(open_url(p15))
-                        pd_imgs_np_train_np_15 = pd_imgs_np_train_15.to_numpy()
-                        pd_imgs_np_train_np_15 = pd_imgs_np_train_np_15[1:, 1:]
-
-                        return np.concatenate((  pd_imgs_np_train_np_1, 
-                                                 pd_imgs_np_train_np_2,
-                                                 pd_imgs_np_train_np_3,
-                                                 pd_imgs_np_train_np_4, 
-                                                 pd_imgs_np_train_np_5,
-                                                 pd_imgs_np_train_np_6,
-                                                 pd_imgs_np_train_np_7, 
-                                                 pd_imgs_np_train_np_8,
-                                                 pd_imgs_np_train_np_9,
-                                                 pd_imgs_np_train_np_10, 
-                                                 pd_imgs_np_train_np_11,
-                                                 pd_imgs_np_train_np_12,
-                                                 pd_imgs_np_train_np_13, 
-                                                 pd_imgs_np_train_np_14,
-                                                 pd_imgs_np_train_np_15
-                                               ), axis=0)
-                    
-                        
-
-                    #########################################################################################################
-                    
-                    ## comb_pd_imgs_np_train_np = func_read_multiple_csv_imgs()
-                    ## pd_imgs_np_train_np = comb_pd_imgs_np_train_np
-
                     ##############################################################################
 
                     ## Element("pandas-output").element.style.display = "block"
                     ## display (pd_conditions_train.head().style.format(precision=2), target="pandas-output", append="False")
-
 
                     ######################################################
 
@@ -262,7 +173,7 @@
 
                     def predict(test_x):
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 2
+                        k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
