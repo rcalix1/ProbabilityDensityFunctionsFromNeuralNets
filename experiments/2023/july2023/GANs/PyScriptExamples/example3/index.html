@@ -162,7 +162,7 @@
                     x_means      =  pd_conditions_train_np.mean(0)
                     x_deviations =  pd_conditions_train_np.std( 0) + epsilon
 
-                    pd_conditions_train_np  = (pd_conditions_train_np - x_means) / x_deviations
+                    ## pd_conditions_train_np  = (pd_conditions_train_np - x_means) / x_deviations
 
                     ######################################################
 
@@ -214,7 +214,7 @@
 
                         np_conditions_list = np.expand_dims(np_conditions_list, axis=0)
 
-                        np_conditions_list  = (np_conditions_list - x_means) / x_deviations
+                        ## np_conditions_list  = (np_conditions_list - x_means) / x_deviations
                        
                         return np_conditions_list
 
@@ -226,35 +226,37 @@
                         text2 = str(pd_ids_train_np.shape)
                         text3 = str(pd_imgs_np_train_np.shape)
                         text4 = str(test_x.shape)
+                    
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
+                    
                         text = text1 + text2 + text3 + text4
                         Element('test-output').element.innerText =  text   
                         generated_img = predict( test_x )
+                    
                         ### fig1, ax = plt.subplots(1,1)
                         ### ax[0].imshow(generated_img)
                         ## ax[1].imshow(generated_img)
                         ### fig1 = plt.imshow(generated_img)
                         
-                        ## plt.rcParams['figure.dpi'] = 300
+                      
                         fig1, ax1 = plt.subplots()
                         plt.imshow(generated_img, cmap='summer')
 
-                        ## divider = make_axes_locatable(ax1)
-                        ## cax = divider.append_axes("right", size="5%", pad=0.05)
-                        ## plt.colorbar(generated_img, cax=cax)
+                  
                         plt.colorbar(label="Colorbar", orientation="vertical")
                     
                         ## ax1.set_aspect('equal')
                         ## tpc = ax1.tripcolor(triang, z, shading='flat')
                         ## fig1.colorbar(tpc)
-                        test_x = test_x * x_deviations + x_means
+                        ## test_x = test_x * x_deviations + x_means
+                    
                         test_x = test_x.astype(int)
                         str_conditions = np.array2string(test_x, precision=0, separator=',', suppress_small=True)
                         str_conditions = str_conditions.replace(" ","")
                         str_conditions = str_conditions.replace("[","")
                         str_conditions = str_conditions.replace("]","")
-                        ## ax1.set_title('Generated Image')
+           
                         ax1.set_title(str_conditions)
                         ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
                         display(fig1, target="mpl")
