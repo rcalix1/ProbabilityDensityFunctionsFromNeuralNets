@@ -157,11 +157,9 @@
 
                     ######################################################
 
-                    epsilon = 0.0001
-
-                    x_means      =  pd_conditions_train_np.mean(0)
-                    x_deviations =  pd_conditions_train_np.std( 0) + epsilon
-
+                    ## epsilon = 0.0001
+                    ## x_means      =  pd_conditions_train_np.mean(0)
+                    ## x_deviations =  pd_conditions_train_np.std( 0) + epsilon
                     ## pd_conditions_train_np  = (pd_conditions_train_np - x_means) / x_deviations
 
                     ######################################################
@@ -173,7 +171,7 @@
 
                     def predict(test_x):
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 2
+                        k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
                         ### print(k_neighbor_indices)
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
@@ -181,9 +179,9 @@
 
                         #################################################################
                         ## for weighted avg
-                        denominator = sum( np.sort(distances)[:k])
-                        weigths_dist =  [ (1 - dist/denominator)   for dist in np.sort(distances)[:k] ]  
-                        avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(weigths_dist))
+                        ## denominator = sum( np.sort(distances)[:k])
+                        ## weigths_dist =  [ (1 - dist/denominator)   for dist in np.sort(distances)[:k] ]  
+                        ## avg_gen_img = np.average( np.array(selected_imgs_to_avg), axis=0 , weights=(weigths_dist))
                         #################################################################
                         
                         ## str_avg_gen_img = np.array2string(avg_gen_img, precision=0, separator=',', suppress_small=True)
@@ -222,33 +220,25 @@
 
                     def my_gen_function():
                         test_x = get_np_conditions_vector()
+                    
                         text1 = str(pd_conditions_train_np.shape)
                         text2 = str(pd_ids_train_np.shape)
                         text3 = str(pd_imgs_np_train_np.shape)
                         text4 = str(test_x.shape)
-                    
                         ## console.log(f'text: {text}')
                         ## text = Element('testInput1').element.value
                     
                         text = text1 + text2 + text3 + text4
                         Element('test-output').element.innerText =  text   
+                    
                         generated_img = predict( test_x )
                     
-                        ### fig1, ax = plt.subplots(1,1)
-                        ### ax[0].imshow(generated_img)
-                        ## ax[1].imshow(generated_img)
-                        ### fig1 = plt.imshow(generated_img)
-                        
-                      
+                                  
                         fig1, ax1 = plt.subplots()
                         plt.imshow(generated_img, cmap='summer')
 
-                  
                         plt.colorbar(label="Colorbar", orientation="vertical")
                     
-                        ## ax1.set_aspect('equal')
-                        ## tpc = ax1.tripcolor(triang, z, shading='flat')
-                        ## fig1.colorbar(tpc)
                         ## test_x = test_x * x_deviations + x_means
                     
                         test_x = test_x.astype(int)
@@ -263,39 +253,7 @@
                    
 
 
-                    ###########################################
-
-                    # First create the x and y coordinates of the points.
-                    n_angles = 36
-                    n_radii = 8
-                    min_radius = 0.25
-                    radii = np.linspace(min_radius, 0.95, n_radii)
-
-                    angles = np.linspace(0, 2 * np.pi, n_angles, endpoint=False)
-                    angles = np.repeat(angles[..., np.newaxis], n_radii, axis=1)
-                    angles[:, 1::2] += np.pi / n_angles
-
-                    x = (radii * np.cos(angles)).flatten()
-                    y = (radii * np.sin(angles)).flatten()
-                    z = (np.cos(radii) * np.cos(3 * angles)).flatten()
-
-                    # Create the Triangulation; no triangles so Delaunay triangulation created.
-                    triang = tri.Triangulation(x, y)
-
-                    # Mask off unwanted triangles.
-                    triang.set_mask(np.hypot(x[triang.triangles].mean(axis=1),
-                                             y[triang.triangles].mean(axis=1))
-                                    < min_radius)
-
-                    ## fig1, ax1 = plt.subplots()
-                    ## ax1.set_aspect('equal')
-                    ## tpc = ax1.tripcolor(triang, z, shading='flat')
-                    ## fig1.colorbar(tpc)
-                    ## ax1.set_title('tripcolor of Delaunay triangulation, flat shading')
-
-                    ## display(fig1, target="mpl")
-
-
+          
                     
                 </script>
          
