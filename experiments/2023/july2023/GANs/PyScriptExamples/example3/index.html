@@ -198,7 +198,7 @@
                         #####################################################
 
                         fig1, ax1 = plt.subplots()
-                        plt.imshow(generated_img)         ##, cmap='summer')
+                        plt.imshow(generated_img)                                     ##, cmap='summer')
                         plt.colorbar(label="Colorbar", orientation="vertical")
                         ax1.set_title(str_conditions)
 
@@ -207,14 +207,13 @@
                     
                         #####################################################
 
-                        fig, ax = plt.subplots(1,2)
-                        ax[0].imshow(generated_img)
-                        ax[1].imshow(generated_img)
-                        ax[0].set_title("Gen: " + str_conditions)
-                        ax[1].set_title("real")
-
+                        ## fig, ax = plt.subplots(1,2)
+                        ## ax[0].imshow(generated_img)
+                        ## ax[1].imshow(generated_img)
+                        ## ax[0].set_title("Gen: " + str_conditions)
+                        ## ax[1].set_title("real")
                         ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
-                        display(fig, target="mpl")
+                        ## display(fig, target="mpl")
    
                 </script>
          
