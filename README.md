@@ -1,3 +1,12 @@
+## Machine Learning–Based Models for Steel Furnace Automation
+
+This repo contains code and datasets related to Steel Furnace Automation
+
+## Publications
+
+* Calix, R., Ugarte, O., Okosun, T., & Wang, H. (2023). Machine Learning–Based Regression Models for Steel Furnace Automation. Preprints. https://doi.org/10.20944/preprints202309.0259.v1 ([Paper](https://www.google.com)) ([Data and code]([https://www.google.com](https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/tree/main/experiments/2023/august2023))) (Paper is submitted and currently under review)
+
+
 ## Probability Density Functions (PDFs) from Neural Networks
 
 Modeling Probability Density Functions (PDFs) from neural nets has many applications in the Engineering Sciences, Industrial Engineering, Finance, and many other fields. These PDF predicting models are used in regression type problems which predict real valued numbers in a given range. The goal of the neural network model is to learn how to represent the probability distribution of the underlying data. The PDF should add to 1. 
