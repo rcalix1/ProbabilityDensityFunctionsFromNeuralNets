@@ -4,8 +4,8 @@ This repo contains code and datasets related to Steel Furnace Automation
 
 ## Publications
 
-* Calix, R.; Ugarte, O.; Okosun, T.; & Wang, H. (2023). Machine Learning–Based Regression Models for Steel Furnace Automation. Preprints. https://doi.org/10.20944/preprints202309.0259.v1  ([Data and code](https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/tree/main/experiments/2023/august2023))
-* https://www.mdpi.com/2673-8716/3/4/34
+* Calix, R.; Ugarte, O.; Okosun, T.; & Wang, H. (2023). Machine Learning–Based Regression Models for Steel Furnace Automation. Preprints.   ([Data and code](https://github.com/rcalix1/ProbabilityDensityFunctionsFromNeuralNets/tree/main/experiments/2023/august2023))
+* Paper link: https://www.mdpi.com/2673-8716/3/4/34
 
 
 ## Probability Density Functions (PDFs) from Neural Networks
