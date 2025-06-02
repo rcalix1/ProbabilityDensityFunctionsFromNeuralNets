@@ -1,6 +1,6 @@
 ## Machine Learning–Based Models for Steel Furnace Automation
 
-This repo contains code and datasets related to Steel Furnace Automation
+This repo contains code and datasets related to Steel Furnace Automation.
 
 ## Publications
 
