@@ -4,3 +4,8 @@
 * (18, 'o_tuy_temp')..........Nothing to learn
 * (19, 'o_burn')..........Nothing to learn
 * 
+
+## Poor performance
+
+* o_co_util
+* 
