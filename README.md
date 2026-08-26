@@ -16,6 +16,7 @@ Two important types are:
 
 * Mixture Density Networks (MDN)
 * PDF Shaping
+* link
 
 ## My Books
 
